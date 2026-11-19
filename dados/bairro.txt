@@ -1,0 +1,1379 @@
+# ======================================================================
+# Roteamento Multimodal Intrabairro — dados do bairro (recorte de Jardim Camburi, Vitória/ES)
+# Gerado em 2026-11-19 a partir de OpenStreetMap (© colaboradores do OSM, licença ODbL)
+# Recorte: lat [-20.26803, -20.25688]  lon [-40.27337, -40.26238]
+# Formato: linhas iniciadas por '#' são comentários; campos separados por ';'.
+# Distâncias em metros — são ATRIBUTOS; o peso de cada aresta (minutos) é derivado na aplicação.
+# ======================================================================
+
+[VERTICES]
+# id;nome;latitude;longitude;tipo   (tipo: INTERSECAO | PARADA | INTERESSE)
+P0001;Ponto Rua Carlos Martins;-20.2571290;-40.2696931;PARADA
+P0002;Ponto Edifício Brasil Center;-20.2572339;-40.2639021;PARADA
+P0003;Ponto Rua Filogônio Motta;-20.2573526;-40.2694378;PARADA
+P0004;Ponto Rua Italina Pereira Motta;-20.2573772;-40.2667279;PARADA
+P0005;Ponto Rua Gelú Vervloet dos Santos;-20.2575219;-40.2733273;PARADA
+P0006;Ponto Rua Italina Pereira Motta (2);-20.2576431;-40.2665718;PARADA
+P0007;Ponto Rua Carlos Martins (2);-20.2582559;-40.2696602;PARADA
+P0008;Ponto Rua Italina Pereira Motta (3);-20.2586440;-40.2653955;PARADA
+P0009;Ponto Edifício Cost Center;-20.2589211;-40.2649125;PARADA
+P0010;Ponto Rua Fortunato Abreu Gagno;-20.2591264;-40.2672838;PARADA
+P0011;Ponto Rua Italina Pereira Motta (4);-20.2593988;-40.2645081;PARADA
+P0012;Ponto Rua Carlos Martins (3);-20.2594206;-40.2695975;PARADA
+P0013;Ponto Rua Fortunato Abreu Gagno (2);-20.2611912;-40.2671525;PARADA
+P0014;Ponto Rua Carlos Martins (4);-20.2612373;-40.2694905;PARADA
+P0015;Ponto Rua Fortunato Abreu Gagno (3);-20.2612548;-40.2671487;PARADA
+P0016;Ponto Rua Fortunato Abreu Gagno (4);-20.2614109;-40.2671416;PARADA
+P0017;Ponto Edifício Veneza;-20.2615600;-40.2637056;PARADA
+P0018;Ponto Comercial Souza Neves;-20.2625768;-40.2670968;PARADA
+P0019;Ponto Rua Carlos Martins (5);-20.2637031;-40.2693834;PARADA
+P0020;Ponto Rua José Celso Cláudio;-20.2638205;-40.2635793;PARADA
+P0021;Ponto Rua Gelú Vervloet dos Santos (2);-20.2640984;-40.2712964;PARADA
+P0022;Ponto Rua Carlos Martins (6);-20.2642228;-40.2693538;PARADA
+P0023;Ponto Avenida Dante Michelini;-20.2643713;-40.2625416;PARADA
+P0024;Ponto Rua Gelú Vervloet dos Santos (3);-20.2644350;-40.2710246;PARADA
+P0025;Ponto Avenida Dante Michelini (2);-20.2650342;-40.2642034;PARADA
+P0026;Ponto Avenida Dante Michelini (3);-20.2654697;-40.2660973;PARADA
+P0027;Ponto Rua Carlos Martins (7);-20.2655595;-40.2692604;PARADA
+P0028;Ponto Edifício Maresias;-20.2655699;-40.2669579;PARADA
+P0029;Ponto Avenida Dante Michelini (4);-20.2665062;-40.2686354;PARADA
+P0030;Ponto 110179;-20.2665097;-40.2689757;PARADA
+I0001;Rua Carlos Romero Marangoni × Rua José Anchieta Fontana;-20.2568865;-40.2624505;INTERSECAO
+I0002;Rua Maria Barbara de Oliveira;-20.2568987;-40.2663317;INTERSECAO
+I0003;Rua Mucio Alto Alencar Oliveira;-20.2569135;-40.2651414;INTERSECAO
+I0004;Rua Carlos Romero Marangoni;-20.2569199;-40.2632973;INTERSECAO
+I0005;Interseção;-20.2569387;-40.2650728;INTERSECAO
+I0006;Rua Carlos Romero Marangoni × Rua José Celso Cláudio;-20.2569475;-40.2639061;INTERSECAO
+I0007;Rua Carlos Romero Marangoni × Praça Miguel Arcanjo Fraga;-20.2569593;-40.2653230;INTERSECAO
+I0008;Rua Carlos Romero Marangoni × Rua Ricardo Figueiredo;-20.2569772;-40.2645189;INTERSECAO
+I0009;Rua Carlos Romero Marangoni (2);-20.2569808;-40.2657350;INTERSECAO
+I0010;Rua Carlos Romero Marangoni × Rua Maria Barbara de Oliveira;-20.2569812;-40.2663124;INTERSECAO
+I0011;Rua Carlos Romero Marangoni (3);-20.2569826;-40.2658964;INTERSECAO
+I0012;Praça Miguel Arcanjo Fraga × Rua Mucio Alto Alencar Oliveira;-20.2569875;-40.2652019;INTERSECAO
+I0013;Rua Carlos Romero Marangoni (4);-20.2569957;-40.2650670;INTERSECAO
+I0014;Rua Carlos Romero Marangoni × Rua Mucio Alto Alencar Oliveira;-20.2569962;-40.2650822;INTERSECAO
+I0015;Rua Carlos Romero Marangoni × Praça Miguel Arcanjo Fraga (2);-20.2569993;-40.2651930;INTERSECAO
+I0016;Interseção (2);-20.2570343;-40.2650632;INTERSECAO
+I0017;Rua Italina Pereira Motta;-20.2570847;-40.2670490;INTERSECAO
+I0018;Rua Italina Pereira Motta (2);-20.2570847;-40.2669533;INTERSECAO
+I0019;Travessa Maria Bárbara de Oliveira × Rua Maria Barbara de Oliveira;-20.2571134;-40.2661701;INTERSECAO
+I0020;Rua Italina Pereira Motta (3);-20.2571322;-40.2670346;INTERSECAO
+I0021;Rua Filogonio Motta;-20.2571350;-40.2671574;INTERSECAO
+I0022;Rua Julia Lacourt Penna;-20.2571355;-40.2685213;INTERSECAO
+I0023;Rua Italina Pereira Motta (4);-20.2571369;-40.2669691;INTERSECAO
+I0024;Rua Gelú Vervloet dos Santos;-20.2571371;-40.2733265;INTERSECAO
+I0025;Rua Filogonio Motta × Rua Filogônio Motta;-20.2571405;-40.2673527;INTERSECAO
+I0026;Praça Miguel Arcanjo Fraga × Rua Sesostres Andrade;-20.2571470;-40.2653004;INTERSECAO
+I0027;Rua Milton Ramalho Simões × Praça Miguel Arcanjo Fraga;-20.2571472;-40.2652668;INTERSECAO
+I0028;Praça Miguel Arcanjo Fraga;-20.2571484;-40.2652836;INTERSECAO
+I0029;Rua Filogonio Motta (2);-20.2571513;-40.2670612;INTERSECAO
+I0030;Rua Maria Barbara de Oliveira (2);-20.2571567;-40.2661157;INTERSECAO
+I0031;Rua Orlando Caliman × Rua Filogônio Motta;-20.2571775;-40.2679329;INTERSECAO
+I0032;Interseção (3);-20.2571862;-40.2651696;INTERSECAO
+I0033;Rua Filogônio Motta;-20.2571903;-40.2684236;INTERSECAO
+I0034;Rua Filogônio Motta × Rua Julia Lacourt Penna;-20.2571964;-40.2685134;INTERSECAO
+I0035;Interseção (4);-20.2571974;-40.2653989;INTERSECAO
+I0036;Rua Italina Pereira Motta (5);-20.2572074;-40.2669384;INTERSECAO
+I0037;Rua Milton Ramalho Simões;-20.2572114;-40.2651932;INTERSECAO
+I0038;Rua Sesostres Andrade;-20.2572220;-40.2653700;INTERSECAO
+I0039;Rua Filogônio Motta × Rua Silvino Grecco;-20.2572272;-40.2691005;INTERSECAO
+I0040;Rua Filogonio Motta (3);-20.2572336;-40.2671513;INTERSECAO
+I0041;Rua Filogonio Motta × Rua Fortunato Abreu Gagno;-20.2572372;-40.2673517;INTERSECAO
+I0042;Rua Filogonio Motta (4);-20.2572392;-40.2670557;INTERSECAO
+I0043;Rua Filogonio Motta × Rua Filogônio Motta (2);-20.2572411;-40.2694398;INTERSECAO
+I0044;Rua Filogonio Motta (5);-20.2572426;-40.2696377;INTERSECAO
+I0045;Rua Carlos Martins × Rua Filogonio Motta;-20.2572462;-40.2696875;INTERSECAO
+I0046;Interseção (5);-20.2572473;-40.2652268;INTERSECAO
+I0047;Interseção (6);-20.2572479;-40.2653395;INTERSECAO
+I0048;Rua Italina Pereira Motta (6);-20.2572538;-40.2670315;INTERSECAO
+I0049;Rua Orlando Caliman × Rua Filogônio Motta (2);-20.2572653;-40.2679272;INTERSECAO
+I0050;Avenida Ranulpho Barbosa dos Santos;-20.2572765;-40.2714576;INTERSECAO
+I0051;Rua Italina Pereira Motta (7);-20.2572766;-40.2668488;INTERSECAO
+I0052;Rua Filogônio Motta (2);-20.2572935;-40.2684203;INTERSECAO
+I0053;Rua Filogônio Motta × Rua Julia Lacourt Penna (2);-20.2572986;-40.2685099;INTERSECAO
+I0054;Rua Filogônio Motta × Rua Silvino Grecco (2);-20.2573352;-40.2690928;INTERSECAO
+I0055;Rua Italina Pereira Motta (8);-20.2573466;-40.2669209;INTERSECAO
+I0056;Rua Filogonio Motta (6);-20.2573636;-40.2696330;INTERSECAO
+I0057;Rua Carlos Martins × Rua Filogonio Motta (2);-20.2573642;-40.2696780;INTERSECAO
+I0058;Rua Sesostres Andrade (2);-20.2573716;-40.2655089;INTERSECAO
+I0059;via de serviço;-20.2573763;-40.2664907;INTERSECAO
+I0060;Avenida Ranulpho Barbosa dos Santos × Rua Euripedes Queiroz do Valle;-20.2573931;-40.2713179;INTERSECAO
+I0061;Rua Darly Antônio Lima × Rua José Anchieta Fontana;-20.2574465;-40.2624323;INTERSECAO
+I0062;Rua Elzira Vivacqua × Rua Italina Pereira Motta;-20.2574718;-40.2667829;INTERSECAO
+I0063;Rua Italina Pereira Motta (9);-20.2574760;-40.2666079;INTERSECAO
+I0064;Rua Darly Antônio Lima × Rua José Celso Cláudio;-20.2575048;-40.2638900;INTERSECAO
+I0065;Travessa Maria Bárbara de Oliveira × Rua Italina Pereira Motta;-20.2575232;-40.2665482;INTERSECAO
+I0066;Rua Maria Barbara de Oliveira × Rua Sesostres Andrade;-20.2575384;-40.2656502;INTERSECAO
+I0067;ciclovia;-20.2576909;-40.2733680;INTERSECAO
+I0068;Rua Milton Ramalho Simões × Rua Ricardo Figueiredo;-20.2578016;-40.2645059;INTERSECAO
+I0069;Rua Italina Pereira Motta (10);-20.2578783;-40.2661208;INTERSECAO
+I0070;Rua José Anchieta Fontana;-20.2579084;-40.2624191;INTERSECAO
+I0071;calçada/passagem;-20.2579417;-40.2733486;INTERSECAO
+I0072;Rua Italina Pereira Motta × Rua Sesostres Andrade;-20.2579428;-40.2660439;INTERSECAO
+I0073;Rua Italina Pereira Motta (11);-20.2579514;-40.2662008;INTERSECAO
+I0074;Rua Alice Bumachar Neffa × Rua Italina Pereira Motta;-20.2579664;-40.2661813;INTERSECAO
+I0075;Rua Dora Vivacqua × Rua José Anchieta Fontana;-20.2579740;-40.2624577;INTERSECAO
+I0076;Rua Milton Ramalho Simões × Rua Alcides Vianna;-20.2580489;-40.2642076;INTERSECAO
+I0077;Rua Dora Vivacqua × Rua José Celso Cláudio;-20.2580546;-40.2638666;INTERSECAO
+I0078;Avenida Ranulpho Barbosa dos Santos × Rua Carlos Delegado Guerra Pinto;-20.2581277;-40.2704791;INTERSECAO
+I0079;via de serviço (2);-20.2581702;-40.2656487;INTERSECAO
+I0080;Rua Italina Pereira Motta (12);-20.2582378;-40.2657093;INTERSECAO
+I0081;Rua Milton Ramalho Simões × Rua José Celso Cláudio;-20.2582694;-40.2638583;INTERSECAO
+I0082;Rua Italina Pereira Motta × Rua João de Oliveira Soares;-20.2584033;-40.2655265;INTERSECAO
+I0083;Rua Alcides Vianna × Rua Maria Barbara de Oliveira;-20.2584264;-40.2645953;INTERSECAO
+I0084;Rua João de Oliveira Soares × Rua Italina Pereira Motta;-20.2584663;-40.2655863;INTERSECAO
+I0085;Rua Alipio da Costa e Silva × Avenida Ranulpho Barbosa dos Santos;-20.2585614;-40.2699594;INTERSECAO
+I0086;Rua Dulce de Brito Espíndula × Rua José Anchieta Fontana;-20.2585681;-40.2624246;INTERSECAO
+I0087;Rua Alipio da Costa e Silva × Rua Carlos Delegado Guerra Pinto;-20.2586043;-40.2704516;INTERSECAO
+I0088;Rua Dulce de Brito Espíndula × Rua José Celso Cláudio;-20.2586366;-40.2638439;INTERSECAO
+I0089;Rua Euripedes Queiroz do Valle × Rua Alipio da Costa e Silva;-20.2586367;-40.2712686;INTERSECAO
+I0090;Rua Domingos Povoa Lemos × Rua Alipio da Costa e Silva;-20.2586669;-40.2720516;INTERSECAO
+I0091;Rua Alipio da Costa e Silva × Rua Gelú Vervloet dos Santos;-20.2587104;-40.2727991;INTERSECAO
+I0092;Rua Italina Pereira Motta × Rua Wellington de Freitas;-20.2588333;-40.2651664;INTERSECAO
+I0093;Rua João de Oliveira Soares × Rua Wellington de Freitas;-20.2588378;-40.2655761;INTERSECAO
+I0094;Rua Italina Pereira Motta × Rua Alcides Vianna;-20.2588495;-40.2649988;INTERSECAO
+I0095;Rua Carlos Martins × Avenida Ranulpho Barbosa dos Santos;-20.2588556;-40.2696291;INTERSECAO
+I0096;Rua Alice Bumachar Neffa × Rua Wellington de Freitas;-20.2588648;-40.2661429;INTERSECAO
+I0097;Rua Elzira Vivacqua × Rua Wellington de Freitas;-20.2588918;-40.2667097;INTERSECAO
+I0098;Rua Fortunato Abreu Gagno × Rua Wellington de Freitas;-20.2589195;-40.2672920;INTERSECAO
+I0099;Rua Orlando Caliman × Rua Wellington de Freitas;-20.2589441;-40.2678549;INTERSECAO
+I0100;Rua Julia Lacourt Penna × Rua Wellington de Freitas;-20.2589700;-40.2684488;INTERSECAO
+I0101;Rua Silvino Grecco × Rua Wellington de Freitas;-20.2589897;-40.2690194;INTERSECAO
+I0102;Rua Wellington de Freitas;-20.2590085;-40.2694140;INTERSECAO
+I0103;Rua Italina Pereira Motta (13);-20.2590087;-40.2648095;INTERSECAO
+I0104;Avenida Ranulpho Barbosa dos Santos (2);-20.2590115;-40.2694856;INTERSECAO
+I0105;Rua Paschoal del Maestro × Rua Italina Pereira Motta;-20.2590129;-40.2649626;INTERSECAO
+I0106;Rua José Celso Cláudio × Rua Maria Barbara de Oliveira;-20.2590770;-40.2638268;INTERSECAO
+I0107;Rua Italina Pereira Motta (14);-20.2590834;-40.2648781;INTERSECAO
+I0108;Rua Aurora de Aguiar Ferreira × Rua José Anchieta Fontana;-20.2591214;-40.2624079;INTERSECAO
+I0109;Rua Paschoal del Maestro;-20.2591246;-40.2649623;INTERSECAO
+I0110;Rua Aurora de Aguiar Ferreira × Rua José Celso Cláudio;-20.2591729;-40.2638230;INTERSECAO
+I0111;Avenida Ranulpho Barbosa dos Santos × Rua Silvino Grecco;-20.2594199;-40.2690106;INTERSECAO
+I0112;Rua Pedro Bussato × Rua Italina Pereira Motta;-20.2595134;-40.2643709;INTERSECAO
+I0113;Rua José Celso Cláudio;-20.2597872;-40.2637991;INTERSECAO
+I0114;Rua Italina Pereira Motta (15);-20.2598307;-40.2640152;INTERSECAO
+I0115;Rua José Celso Cláudio × Rua Italina Pereira Motta;-20.2598710;-40.2637958;INTERSECAO
+I0116;Rua Julia Lacourt Penna × Avenida Ranulpho Barbosa dos Santos;-20.2599301;-40.2683895;INTERSECAO
+I0117;Rua Domingos Povoa Lemos × Rua Gelú Vervloet dos Santos;-20.2599689;-40.2724286;INTERSECAO
+I0118;Avenida Ranulpho Barbosa dos Santos (3);-20.2600245;-40.2682482;INTERSECAO
+I0119;Rua Italina Pereira Motta × Rua José Celso Cláudio;-20.2600257;-40.2637792;INTERSECAO
+I0120;Rua Julia Lacourt Penna (2);-20.2600889;-40.2683854;INTERSECAO
+I0121;Rua Agenor Amaro dos Santos × Rua Doutor João Batista Miranda Amaral;-20.2603431;-40.2629247;INTERSECAO
+I0122;Rua Agenor Amaro dos Santos × Rua José Celso Cláudio;-20.2603767;-40.2637577;INTERSECAO
+I0123;Rua Pedro Bussato × Rua Agenor Amaro dos Santos;-20.2603941;-40.2643444;INTERSECAO
+I0124;Rua Paschoal del Maestro × Rua Agenor Amaro dos Santos;-20.2604135;-40.2649126;INTERSECAO
+I0125;Rua Orlando Caliman × Avenida Ranulpho Barbosa dos Santos;-20.2604248;-40.2678063;INTERSECAO
+I0126;Rua João de Oliveira Soares × Rua Agenor Amaro dos Santos;-20.2604391;-40.2654818;INTERSECAO
+I0127;Rua Alice Bumachar Neffa × Rua Agenor Amaro dos Santos;-20.2604742;-40.2660532;INTERSECAO
+I0128;Rua Gelú Vervloet dos Santos (2);-20.2604894;-40.2722572;INTERSECAO
+I0129;Rua Elzira Vivacqua × Rua Agenor Amaro dos Santos;-20.2605115;-40.2666372;INTERSECAO
+I0130;Rua Agenor Amaro dos Santos;-20.2605229;-40.2671359;INTERSECAO
+I0131;Rua Fortunato Abreu Gagno × Rua Agenor Amaro dos Santos;-20.2605258;-40.2671970;INTERSECAO
+I0132;Rua Agenor Amaro dos Santos × Avenida Ranulpho Barbosa dos Santos;-20.2605467;-40.2676458;INTERSECAO
+I0133;Rua Agenor Amaro dos Santos × Rua Orlando Caliman;-20.2605512;-40.2677910;INTERSECAO
+I0134;Rua Julia Lacourt Penna × Rua Agenor Amaro dos Santos;-20.2605892;-40.2683677;INTERSECAO
+I0135;Rua Agenor Amaro dos Santos × Rua Silvino Grecco;-20.2606126;-40.2689276;INTERSECAO
+I0136;Rua Carlos Martins × Rua Agenor Amaro dos Santos;-20.2606272;-40.2695240;INTERSECAO
+I0137;Rua Carlos Delegado Guerra Pinto × Rua Agenor Amaro dos Santos;-20.2606634;-40.2703472;INTERSECAO
+I0138;Rua Euripedes Queiroz do Valle × Rua Agenor Amaro dos Santos;-20.2607007;-40.2711651;INTERSECAO
+I0139;Rua Agenor Amaro dos Santos (2);-20.2607589;-40.2719773;INTERSECAO
+I0140;Rua Agenor Amaro dos Santos (3);-20.2607613;-40.2719993;INTERSECAO
+I0141;Rua Gelú Vervloet dos Santos × Rua Agenor Amaro dos Santos;-20.2607741;-40.2721754;INTERSECAO
+I0142;Rua Fortunato Abreu Gagno × Avenida Ranulpho Barbosa dos Santos;-20.2609426;-40.2671710;INTERSECAO
+I0143;Rua Milton Manoel dos Santos;-20.2611244;-40.2628761;INTERSECAO
+I0144;Rua Doutor João Batista Miranda Amaral × Rua Milton Manoel dos Santos;-20.2611252;-40.2629029;INTERSECAO
+I0145;Rua Milton Manoel dos Santos × Rua José Celso Cláudio;-20.2611745;-40.2637257;INTERSECAO
+I0146;Rua Pedro Bussato × Rua Milton Manoel dos Santos;-20.2611935;-40.2642972;INTERSECAO
+I0147;Rua Paschoal del Maestro × Rua Milton Manoel dos Santos;-20.2612252;-40.2648759;INTERSECAO
+I0148;Rua Milton Manoel dos Santos (2);-20.2612256;-40.2649125;INTERSECAO
+I0149;Rua João de Oliveira Soares × Rua Milton Manoel dos Santos;-20.2612386;-40.2654471;INTERSECAO
+I0150;Avenida Ranulpho Barbosa dos Santos × Rua Milton Manoel dos Santos;-20.2612720;-40.2667969;INTERSECAO
+I0151;Rua Alice Bumachar Neffa × Rua Milton Manoel dos Santos;-20.2612750;-40.2660138;INTERSECAO
+I0152;Rua Milton Manoel dos Santos × Rua Elzira Vivacqua;-20.2612764;-40.2666199;INTERSECAO
+I0153;Rua Milton Manoel dos Santos (3);-20.2612891;-40.2672286;INTERSECAO
+I0154;Rua Fortunato Abreu Gagno × Rua Milton Manoel dos Santos;-20.2612909;-40.2671464;INTERSECAO
+I0155;Rua Orlando Caliman × Rua Milton Manoel dos Santos;-20.2613056;-40.2677271;INTERSECAO
+I0156;Rua Julia Lacourt Penna × Rua Milton Manoel dos Santos;-20.2613362;-40.2683085;INTERSECAO
+I0157;Rua Milton Manoel dos Santos × Rua Silvino Grecco;-20.2613647;-40.2688648;INTERSECAO
+I0158;Rua Milton Manoel dos Santos × Rua Carlos Martins;-20.2613935;-40.2694762;INTERSECAO
+I0159;Rua Milton Manoel dos Santos × Rua Carlos Delegado Guerra Pinto;-20.2614281;-40.2703074;INTERSECAO
+I0160;Avenida Ranulpho Barbosa dos Santos × Rua Elzira Vivacqua;-20.2614562;-40.2665840;INTERSECAO
+I0161;Rua Milton Manoel dos Santos × Rua Euripedes Queiroz do Valle;-20.2614683;-40.2711054;INTERSECAO
+I0162;via sem nome;-20.2619210;-40.2628004;INTERSECAO
+I0163;Rua Doutor João Batista Miranda Amaral;-20.2619272;-40.2628604;INTERSECAO
+I0164;Rua Alice Bumachar Neffa × Avenida Ranulpho Barbosa dos Santos;-20.2619417;-40.2659784;INTERSECAO
+I0165;Avenida Ranulpho Barbosa dos Santos (4);-20.2620247;-40.2658794;INTERSECAO
+I0166;Rua Alice Bumachar Neffa;-20.2620909;-40.2659733;INTERSECAO
+I0167;Rua Paschoal del Maestro (2);-20.2624412;-40.2648108;INTERSECAO
+I0168;Rua João de Oliveira Soares × Avenida Ranulpho Barbosa dos Santos;-20.2624500;-40.2653911;INTERSECAO
+I0169;via de serviço (3);-20.2624745;-40.2643654;INTERSECAO
+I0170;Rua Ruy Pinto Bandeira;-20.2624787;-40.2627415;INTERSECAO
+I0171;Rua Doutor João Batista Miranda Amaral × Rua Ruy Pinto Bandeira;-20.2624825;-40.2628322;INTERSECAO
+I0172;Rua Ruy Pinto Bandeira × Rua José Celso Cláudio;-20.2625147;-40.2636634;INTERSECAO
+I0173;Rua Ruy Pinto Bandeira × Rua Pedro Bussato;-20.2625430;-40.2642355;INTERSECAO
+I0174;Rua Ruy Pinto Bandeira (2);-20.2625484;-40.2643620;INTERSECAO
+I0175;Rua Ruy Pinto Bandeira × Rua Paschoal del Maestro;-20.2625661;-40.2648046;INTERSECAO
+I0176;Rua Ruy Pinto Bandeira × Rua João de Oliveira Soares;-20.2625741;-40.2653805;INTERSECAO
+I0177;Rua Ruy Pinto Bandeira × Avenida Ranulpho Barbosa dos Santos;-20.2625767;-40.2652674;INTERSECAO
+I0178;Rua Alice Bumachar Neffa × Rua Ruy Pinto Bandeira;-20.2626098;-40.2659554;INTERSECAO
+I0179;Rua Ruy Pinto Bandeira × Rua Elzira Vivacqua;-20.2626453;-40.2665429;INTERSECAO
+I0180;Rua Ruy Pinto Bandeira × Rua Fortunato Abreu Gagno;-20.2626638;-40.2670910;INTERSECAO
+I0181;Rua Ruy Pinto Bandeira × Rua Orlando Caliman;-20.2626886;-40.2676783;INTERSECAO
+I0182;Rua Julia Lacourt Penna × Rua Ruy Pinto Bandeira;-20.2627167;-40.2682256;INTERSECAO
+I0183;Rua Ruy Pinto Bandeira × Rua Silvino Grecco;-20.2627412;-40.2688176;INTERSECAO
+I0184;Rua Carlos Martins × Rua Ruy Pinto Bandeira;-20.2627611;-40.2694207;INTERSECAO
+I0185;Rua Carlos Delegado Guerra Pinto × Rua Ruy Pinto Bandeira;-20.2628071;-40.2702452;INTERSECAO
+I0186;Rua Euripedes Queiroz do Valle × Rua Ruy Pinto Bandeira;-20.2628508;-40.2710842;INTERSECAO
+I0187;Rua Gelú Vervloet dos Santos × Rua Ruy Pinto Bandeira;-20.2629130;-40.2715127;INTERSECAO
+I0188;Rua Paschoal del Maestro × Avenida Ranulpho Barbosa dos Santos;-20.2630017;-40.2647894;INTERSECAO
+I0189;Avenida Ranulpho Barbosa dos Santos (5);-20.2630744;-40.2647032;INTERSECAO
+I0190;Rua Gelú Vervloet dos Santos (3);-20.2633727;-40.2714671;INTERSECAO
+I0191;ciclovia × via de serviço;-20.2633893;-40.2715288;INTERSECAO
+I0192;via de serviço × calçada/passagem;-20.2634125;-40.2716042;INTERSECAO
+I0193;Rua Pedro Bussato × Avenida Ranulpho Barbosa dos Santos;-20.2635143;-40.2641850;INTERSECAO
+I0194;Rua Gelú Vervloet dos Santos × Avenida Dante Michelini;-20.2637718;-40.2712253;INTERSECAO
+I0195;Rua Paschoal del Maestro × Rua Antônio Araújo Lyra;-20.2638625;-40.2647382;INTERSECAO
+I0196;Rua João de Oliveira Soares × Rua Antônio Araújo Lyra;-20.2638896;-40.2653008;INTERSECAO
+I0197;Rua Alice Bumachar Neffa × Rua Antônio Araújo Lyra;-20.2639122;-40.2658705;INTERSECAO
+I0198;Rua Doutor João Batista Miranda Amaral (2);-20.2639477;-40.2627780;INTERSECAO
+I0199;Rua Antônio Araújo Lyra × Rua Elzira Vivacqua;-20.2639490;-40.2664599;INTERSECAO
+I0200;calçada/passagem (2);-20.2639716;-40.2628540;INTERSECAO
+I0201;calçada/passagem (3);-20.2639823;-40.2632209;INTERSECAO
+I0202;Rua Fortunato Abreu Gagno × Rua Antônio Araújo Lyra;-20.2639902;-40.2670242;INTERSECAO
+I0203;Rua José Celso Cláudio (2);-20.2639969;-40.2635687;INTERSECAO
+I0204;Rua Antônio Araújo Lyra × Rua Orlando Caliman;-20.2640145;-40.2676223;INTERSECAO
+I0205;Rua Doutor João Batista Miranda Amaral (3);-20.2640235;-40.2627741;INTERSECAO
+I0206;Rua Julia Lacourt Penna × Rua Antônio Araújo Lyra;-20.2640318;-40.2681817;INTERSECAO
+I0207;Rua Antônio Araújo Lyra × Rua Silvino Grecco;-20.2640428;-40.2687410;INTERSECAO
+I0208;Rua José Celso Cláudio × Avenida Ranulpho Barbosa dos Santos;-20.2640571;-40.2635662;INTERSECAO
+I0209;Rua Carlos Martins × Rua Antônio Araújo Lyra;-20.2640698;-40.2693697;INTERSECAO
+I0210;Rua Carlos Delegado Guerra Pinto × Rua Antônio Araújo Lyra;-20.2641123;-40.2701819;INTERSECAO
+I0211;Rua Antônio Araújo Lyra;-20.2641241;-40.2703319;INTERSECAO
+I0212;calçada/passagem (4);-20.2641388;-40.2628453;INTERSECAO
+I0213;Rua Antônio Araújo Lyra (2);-20.2641691;-40.2710067;INTERSECAO
+I0214;via de serviço (4);-20.2641724;-40.2703294;INTERSECAO
+I0215;Rua Gelú Vervloet dos Santos (4);-20.2641745;-40.2710941;INTERSECAO
+I0216;calçada/passagem (5);-20.2641794;-40.2631296;INTERSECAO
+I0217;Rua Gelú Vervloet dos Santos (5);-20.2641983;-40.2712893;INTERSECAO
+I0218;Rua Gelú Vervloet dos Santos (6);-20.2642817;-40.2710647;INTERSECAO
+I0219;Rua Doutor João Batista Miranda Amaral (4);-20.2643225;-40.2627615;INTERSECAO
+I0220;calçada/passagem (6);-20.2643290;-40.2628354;INTERSECAO
+I0221;Avenida Dante Michelini;-20.2643891;-40.2712070;INTERSECAO
+I0222;calçada/passagem (7);-20.2643974;-40.2628096;INTERSECAO
+I0223;calçada/passagem (8);-20.2644017;-40.2628313;INTERSECAO
+I0224;Rua Gelú Vervloet dos Santos (7);-20.2644019;-40.2712915;INTERSECAO
+I0225;Rua José Celso Cláudio (3);-20.2644292;-40.2635647;INTERSECAO
+I0226;calçada/passagem (9);-20.2644369;-40.2630078;INTERSECAO
+I0227;Rua José Celso Cláudio × Avenida Dante Michelini;-20.2645206;-40.2635592;INTERSECAO
+I0228;Avenida Dante Michelini (2);-20.2645247;-40.2627818;INTERSECAO
+I0229;calçada/passagem (10);-20.2645795;-40.2633917;INTERSECAO
+I0230;Rua José Celso Cláudio (4);-20.2645969;-40.2634394;INTERSECAO
+I0231;via sem nome (2);-20.2646039;-40.2624719;INTERSECAO
+I0232;Avenida Dante Michelini (3);-20.2646151;-40.2627467;INTERSECAO
+I0233;Avenida Dante Michelini (4);-20.2646240;-40.2635132;INTERSECAO
+I0234;Interseção (7);-20.2646289;-40.2635374;INTERSECAO
+I0235;Rua José Celso Cláudio (5);-20.2646356;-40.2635623;INTERSECAO
+I0236;Avenida Dante Michelini × Rua José Celso Cláudio;-20.2646369;-40.2632099;INTERSECAO
+I0237;Avenida Dante Michelini (5);-20.2646962;-40.2634337;INTERSECAO
+I0238;ciclovia (2);-20.2647100;-40.2624860;INTERSECAO
+I0239;Avenida Dante Michelini (6);-20.2647153;-40.2635175;INTERSECAO
+I0240;ciclovia (3);-20.2647317;-40.2627232;INTERSECAO
+I0241;Avenida Dante Michelini × Rua José Celso Cláudio (2);-20.2647356;-40.2635847;INTERSECAO
+I0242;ciclovia × via sem nome;-20.2647365;-40.2711011;INTERSECAO
+I0243;calçada/passagem (11);-20.2647600;-40.2627218;INTERSECAO
+I0244;Avenida Dante Michelini (7);-20.2647803;-40.2633080;INTERSECAO
+I0245;Avenida Dante Michelini (8);-20.2647833;-40.2711542;INTERSECAO
+I0246;Rua Gelú Vervloet dos Santos (8);-20.2647912;-40.2709096;INTERSECAO
+I0247;calçada/passagem × via sem nome;-20.2647997;-40.2711736;INTERSECAO
+I0248;calçada/passagem (12);-20.2648147;-40.2630464;INTERSECAO
+I0249;Avenida Dante Michelini (9);-20.2648300;-40.2634880;INTERSECAO
+I0250;Rua Gelú Vervloet dos Santos (9);-20.2648517;-40.2712226;INTERSECAO
+I0251;Rua Pedro Bussato × Avenida Dante Michelini;-20.2648689;-40.2640889;INTERSECAO
+I0252;calçada/passagem (13);-20.2648781;-40.2632431;INTERSECAO
+I0253;Avenida Dante Michelini (10);-20.2649008;-40.2711346;INTERSECAO
+I0254;Avenida Dante Michelini (11);-20.2649198;-40.2638066;INTERSECAO
+I0255;via de serviço (5);-20.2649209;-40.2683372;INTERSECAO
+I0256;ciclovia (4);-20.2649345;-40.2634528;INTERSECAO
+I0257;calçada/passagem (14);-20.2649521;-40.2634480;INTERSECAO
+I0258;calçada/passagem (15);-20.2649748;-40.2624401;INTERSECAO
+I0259;Rua Paschoal del Maestro × Avenida Dante Michelini;-20.2650407;-40.2646807;INTERSECAO
+I0260;calçada/passagem (16);-20.2650693;-40.2623865;INTERSECAO
+I0261;Avenida Dante Michelini (12);-20.2650875;-40.2643864;INTERSECAO
+I0262;Rua Silvino Grecco;-20.2651211;-40.2686954;INTERSECAO
+I0263;Rua Carlos Delegado Guerra Pinto × Rua Carlos Martins;-20.2651637;-40.2692705;INTERSECAO
+I0264;Rua João de Oliveira Soares × Avenida Dante Michelini;-20.2652262;-40.2652262;INTERSECAO
+I0265;Avenida Dante Michelini (13);-20.2652271;-40.2649411;INTERSECAO
+I0266;Avenida Dante Michelini (14);-20.2653245;-40.2655878;INTERSECAO
+I0267;escadaria × calçada/passagem;-20.2653425;-40.2645840;INTERSECAO
+I0268;Rua Alice Bumachar Neffa × Avenida Dante Michelini;-20.2653906;-40.2658134;INTERSECAO
+I0269;calçada/passagem (17);-20.2653914;-40.2647442;INTERSECAO
+I0270;escadaria × calçada/passagem (2);-20.2654783;-40.2645066;INTERSECAO
+I0271;trilha × calçada/passagem;-20.2654991;-40.2650974;INTERSECAO
+I0272;Avenida Dante Michelini (15);-20.2655193;-40.2658235;INTERSECAO
+I0273;Avenida Dante Michelini × Rua Elzira Vivacqua;-20.2655549;-40.2663838;INTERSECAO
+I0274;calçada/passagem (18);-20.2656299;-40.2635517;INTERSECAO
+I0275;calçada/passagem (19);-20.2656536;-40.2635449;INTERSECAO
+I0276;Rua Carlos Martins;-20.2656995;-40.2692569;INTERSECAO
+I0277;Avenida Dante Michelini (16);-20.2656995;-40.2668456;INTERSECAO
+I0278;Avenida Dante Michelini × Rua Fortunato Abreu Gagno;-20.2657255;-40.2669285;INTERSECAO
+I0279;via de serviço (6);-20.2657745;-40.2697787;INTERSECAO
+I0280;via de serviço (7);-20.2658113;-40.2697582;INTERSECAO
+I0281;Avenida Dante Michelini (17);-20.2658175;-40.2668086;INTERSECAO
+I0282;calçada/passagem (20);-20.2658532;-40.2642775;INTERSECAO
+I0283;calçada/passagem (21);-20.2658700;-40.2642693;INTERSECAO
+I0284;calçada/passagem (22);-20.2658741;-40.2643808;INTERSECAO
+I0285;Avenida Dante Michelini × Rua Orlando Caliman;-20.2659057;-40.2675435;INTERSECAO
+I0286;Avenida Dante Michelini (18);-20.2659121;-40.2671210;INTERSECAO
+I0287;ciclovia × calçada/passagem;-20.2659493;-40.2667695;INTERSECAO
+I0288;calçada/passagem (23);-20.2659531;-40.2662537;INTERSECAO
+I0289;calçada/passagem (24);-20.2659608;-40.2666669;INTERSECAO
+I0290;calçada/passagem × escadaria;-20.2659798;-40.2666681;INTERSECAO
+I0291;calçada/passagem (25);-20.2659814;-40.2667584;INTERSECAO
+I0292;via de serviço (8);-20.2660555;-40.2696435;INTERSECAO
+I0293;calçada/passagem × escadaria (2);-20.2660792;-40.2668645;INTERSECAO
+I0294;trilha;-20.2660831;-40.2633018;INTERSECAO
+I0295;calçada/passagem × trilha;-20.2660942;-40.2633880;INTERSECAO
+I0296;Rua Julia Lacourt Penna × Avenida Dante Michelini;-20.2661311;-40.2680661;INTERSECAO
+I0297;calçada/passagem (26);-20.2661315;-40.2669107;INTERSECAO
+I0298;trilha (2);-20.2661719;-40.2649592;INTERSECAO
+I0299;via de serviço (9);-20.2661953;-40.2694185;INTERSECAO
+I0300;Rua Gelú Vervloet dos Santos × Avenida Dante Michelini (2);-20.2662486;-40.2704379;INTERSECAO
+I0301;Avenida Dante Michelini (19);-20.2662812;-40.2708213;INTERSECAO
+I0302;Avenida Dante Michelini (20);-20.2663363;-40.2708719;INTERSECAO
+I0303;Rua Silvino Grecco × Avenida Dante Michelini;-20.2663754;-40.2686423;INTERSECAO
+I0304;Avenida Dante Michelini (21);-20.2663838;-40.2683311;INTERSECAO
+I0305;calçada/passagem (27);-20.2663953;-40.2672804;INTERSECAO
+I0306;Rua Gelú Vervloet dos Santos (10);-20.2664163;-40.2710546;INTERSECAO
+I0307;via de serviço (10);-20.2664179;-40.2693602;INTERSECAO
+I0308;calçada/passagem (28);-20.2664299;-40.2675584;INTERSECAO
+I0309;via de serviço (11);-20.2664674;-40.2696288;INTERSECAO
+I0310;calçada/passagem (29);-20.2664744;-40.2681077;INTERSECAO
+I0311;Avenida Dante Michelini (22);-20.2664999;-40.2709965;INTERSECAO
+I0312;via de serviço (12);-20.2665236;-40.2697581;INTERSECAO
+I0313;via de serviço (13);-20.2665264;-40.2693268;INTERSECAO
+I0314;Rua Carlos Martins (2);-20.2665290;-40.2692315;INTERSECAO
+I0315;calçada/passagem (30);-20.2665512;-40.2680907;INTERSECAO
+I0316;via sem nome × calçada/passagem;-20.2665537;-40.2709496;INTERSECAO
+I0317;Avenida Dante Michelini (23);-20.2665646;-40.2691165;INTERSECAO
+I0318;via de serviço (14);-20.2665675;-40.2685785;INTERSECAO
+I0319;ciclovia × via sem nome (2);-20.2665719;-40.2709338;INTERSECAO
+I0320;via de serviço (15);-20.2665724;-40.2695195;INTERSECAO
+I0321;calçada/passagem (31);-20.2665907;-40.2673029;INTERSECAO
+I0322;Avenida Dante Michelini × Rua Carlos Martins;-20.2666093;-40.2692321;INTERSECAO
+I0323;Rua Gelú Vervloet dos Santos (11);-20.2666163;-40.2711354;INTERSECAO
+I0324;Avenida Dante Michelini (24);-20.2666239;-40.2689221;INTERSECAO
+I0325;calçada/passagem (32);-20.2666347;-40.2678528;INTERSECAO
+I0326;via de serviço (16);-20.2666718;-40.2698063;INTERSECAO
+I0327;Avenida Dante Michelini (25);-20.2666758;-40.2702771;INTERSECAO
+I0328;Avenida Dante Michelini (26);-20.2666776;-40.2690546;INTERSECAO
+I0329;Avenida Dante Michelini (27);-20.2666911;-40.2710911;INTERSECAO
+I0330;Avenida Dante Michelini (28);-20.2666935;-40.2694639;INTERSECAO
+I0331;via sem nome (3);-20.2667206;-40.2692733;INTERSECAO
+I0332;ciclovia (5);-20.2667941;-40.2689998;INTERSECAO
+I0333;via sem nome × calçada/passagem (2);-20.2667952;-40.2710630;INTERSECAO
+I0334;Avenida Dante Michelini (29);-20.2667971;-40.2697343;INTERSECAO
+I0335;ciclovia × via sem nome (3);-20.2668179;-40.2710552;INTERSECAO
+I0336;calçada/passagem (33);-20.2668262;-40.2689821;INTERSECAO
+I0337;calçada/passagem × escadaria (3);-20.2668454;-40.2688452;INTERSECAO
+I0338;calçada/passagem (34);-20.2668581;-40.2690602;INTERSECAO
+I0339;Rua Gelú Vervloet dos Santos (12);-20.2668586;-40.2713739;INTERSECAO
+I0340;Avenida Dante Michelini (30);-20.2668763;-40.2701393;INTERSECAO
+I0341;Avenida Dante Michelini (31);-20.2668943;-40.2700165;INTERSECAO
+I0342;escadaria × calçada/passagem (3);-20.2668993;-40.2690409;INTERSECAO
+I0343;calçada/passagem (35);-20.2669029;-40.2702053;INTERSECAO
+I0344;calçada/passagem (36);-20.2669198;-40.2702484;INTERSECAO
+I0345;trilha × calçada/passagem (2);-20.2669492;-40.2685636;INTERSECAO
+I0346;via sem nome (4);-20.2669516;-40.2703294;INTERSECAO
+I0347;calçada/passagem (37);-20.2669669;-40.2703831;INTERSECAO
+I0348;via sem nome (5);-20.2670129;-40.2703423;INTERSECAO
+I0349;via sem nome (6);-20.2670795;-40.2700987;INTERSECAO
+I0350;Avenida Dante Michelini (32);-20.2670971;-40.2700932;INTERSECAO
+I0351;Avenida Dante Michelini (33);-20.2671222;-40.2701558;INTERSECAO
+I0352;ciclovia (6);-20.2671564;-40.2712142;INTERSECAO
+I0353;calçada/passagem (38);-20.2671848;-40.2709053;INTERSECAO
+I0354;via sem nome (7);-20.2672058;-40.2709640;INTERSECAO
+I0355;escadaria × calçada/passagem (4);-20.2672080;-40.2698931;INTERSECAO
+I0356;calçada/passagem (39);-20.2672279;-40.2710117;INTERSECAO
+I0357;ciclovia × calçada/passagem (2);-20.2672533;-40.2712769;INTERSECAO
+I0358;ciclovia × calçada/passagem (3);-20.2672606;-40.2710825;INTERSECAO
+I0359;escadaria;-20.2672608;-40.2698806;INTERSECAO
+I0360;trilha (3);-20.2672689;-40.2691928;INTERSECAO
+I0361;via sem nome (8);-20.2672727;-40.2709336;INTERSECAO
+I0362;calçada/passagem (40);-20.2672953;-40.2711413;INTERSECAO
+I0363;calçada/passagem (41);-20.2672963;-40.2711224;INTERSECAO
+I0364;trilha × escadaria;-20.2672982;-40.2700307;INTERSECAO
+I0365;calçada/passagem (42);-20.2673134;-40.2711077;INTERSECAO
+I0366;via sem nome (9);-20.2673475;-40.2708190;INTERSECAO
+I0367;Avenida Dante Michelini (34);-20.2673768;-40.2707314;INTERSECAO
+I0368;ciclovia × via sem nome (4);-20.2674075;-40.2709421;INTERSECAO
+I0369;calçada/passagem (43);-20.2674373;-40.2704082;INTERSECAO
+I0370;via sem nome (10);-20.2674398;-40.2710060;INTERSECAO
+I0371;Avenida Dante Michelini (35);-20.2674729;-40.2708895;INTERSECAO
+I0372;Avenida Dante Michelini (36);-20.2675070;-40.2709572;INTERSECAO
+I0373;via sem nome (11);-20.2675098;-40.2711304;INTERSECAO
+I0374;ciclovia (7);-20.2675703;-40.2708160;INTERSECAO
+I0375;trilha (4);-20.2675797;-40.2701307;INTERSECAO
+I0376;ciclovia (8);-20.2676085;-40.2708872;INTERSECAO
+I0377;ciclovia (9);-20.2676277;-40.2709308;INTERSECAO
+I0378;calçada/passagem (44);-20.2676557;-40.2708488;INTERSECAO
+I0379;Rua Gelú Vervloet dos Santos (13);-20.2677214;-40.2724430;INTERSECAO
+I0380;Avenida Dante Michelini (37);-20.2677654;-40.2723491;INTERSECAO
+I0381;via sem nome (12);-20.2677895;-40.2716294;INTERSECAO
+I0382;trilha (5);-20.2677937;-40.2699150;INTERSECAO
+I0383;trilha (6);-20.2678596;-40.2703642;INTERSECAO
+I0384;ciclovia (10);-20.2679070;-40.2721358;INTERSECAO
+I0385;calçada/passagem (45);-20.2679560;-40.2714129;INTERSECAO
+I0386;trilha (7);-20.2679652;-40.2705319;INTERSECAO
+I0387;via sem nome (13);-20.2680208;-40.2720299;INTERSECAO
+L0001;Alice Krause Atelier;-20.2589132;-40.2698492;INTERESSE
+L0002;Apto da Neca;-20.2632189;-40.2644805;INTERESSE
+L0003;Auto Posto Shell;-20.2648913;-40.2650809;INTERESSE
+L0004;Banestes;-20.2581326;-40.2657038;INTERESSE
+L0005;Bike Vitória - Estação 19;-20.2668980;-40.2692030;INTERESSE
+L0006;Bike Vitória - Estação 20;-20.2648918;-40.2630853;INTERESSE
+L0007;Bike Vitória Kids - Estação 101;-20.2669664;-40.2693704;INTERESSE
+L0008;Bristol Diamond Suites Hotel;-20.2662711;-40.2691260;INTERESSE
+L0009;CEMEC;-20.2592650;-40.2649072;INTERESSE
+L0010;Centro Municipal de Educação Infantil Rubens José Vervloet Gomes;-20.2640321;-40.2635032;INTERESSE
+L0011;Clínica Odontologia Doctor Dent;-20.2626100;-40.2643880;INTERESSE
+L0012;Drogasil;-20.2570425;-40.2638202;INTERESSE
+L0013;Escola Municipal de Ensino Fundamental Elzira Vivacqua dos Santos;-20.2570379;-40.2676210;INTERESSE
+L0014;Hotel Porto do Sol;-20.2662338;-40.2698116;INTERESSE
+L0015;Hotel Porto do Sol (2);-20.2663626;-40.2697452;INTERESSE
+L0016;Igreja Apostólica Batista;-20.2638879;-40.2665944;INTERESSE
+L0017;Igreja do Senhor Jesus Cristo;-20.2640918;-40.2644150;INTERESSE
+L0018;Ilios Beach House;-20.2675052;-40.2703979;INTERESSE
+L0019;Instituto Amme Odontologia;-20.2605667;-40.2661845;INTERESSE
+L0020;Le Buffet Master;-20.2640838;-40.2708316;INTERESSE
+L0021;Lilliput Centro de Educação Infantil;-20.2613142;-40.2649756;INTERESSE
+L0022;Raizes Gastrobar e restaurante;-20.2576826;-40.2721446;INTERESSE
+L0023;Restaurante Come Come II;-20.2591099;-40.2644895;INTERESSE
+L0024;Supermercado BH;-20.2619843;-40.2645795;INTERESSE
+L0025;Táxi Executivo;-20.2646039;-40.2664159;INTERESSE
+L0026;Underground Tattoo & Piercing;-20.2570696;-40.2648993;INTERESSE
+
+[TRECHOS]
+# origem;destino;distancia_m;via;pe;bici;ciclovia
+#   pe       S|N            — trecho caminhável (pedestre ignora mão única)
+#   bici     AMBOS|IDA|NENHUM — IDA = pedalável apenas no sentido origem→destino
+#   ciclovia S|N            — S: tempo de bicicleta multiplicado por 1/2
+I0001;I0004;88.4;Rua Carlos Romero Marangoni;S;IDA;N
+I0001;I0061;62.3;Rua José Anchieta Fontana;S;IDA;N
+I0002;I0010;9.4;Rua Maria Barbara de Oliveira;S;AMBOS;N
+I0004;I0006;63.6;Rua Carlos Romero Marangoni;S;IDA;N
+I0006;I0008;64.0;Rua Carlos Romero Marangoni;S;IDA;N
+I0006;P0002;31.8;Rua José Celso Cláudio;S;AMBOS;N
+I0007;I0009;43.0;Rua Carlos Romero Marangoni;S;IDA;N
+I0007;I0026;28.1;Praça Miguel Arcanjo Fraga;S;IDA;N
+I0008;I0013;57.2;Rua Carlos Romero Marangoni;S;IDA;N
+I0009;I0011;16.8;Rua Carlos Romero Marangoni;S;IDA;N
+I0010;I0019;20.9;Rua Maria Barbara de Oliveira;S;IDA;N
+I0011;I0010;43.4;Rua Carlos Romero Marangoni;S;IDA;N
+I0011;I0030;30.0;via sem nome;S;IDA;N
+I0012;I0003;10.4;Rua Mucio Alto Alencar Oliveira;S;AMBOS;N
+I0012;I0007;13.9;Praça Miguel Arcanjo Fraga;S;IDA;N
+I0013;I0005;6.4;faixa de travessia;S;NENHUM;N
+I0013;I0014;1.6;Rua Carlos Romero Marangoni;S;IDA;N
+I0014;I0003;11.1;Rua Mucio Alto Alencar Oliveira;S;IDA;N
+I0014;I0015;11.6;Rua Carlos Romero Marangoni;S;IDA;N
+I0015;I0012;1.6;Praça Miguel Arcanjo Fraga;S;IDA;N
+I0016;I0013;4.3;faixa de travessia;S;NENHUM;N
+I0017;I0018;10.0;faixa de travessia;S;NENHUM;N
+I0017;I0020;5.6;Rua Italina Pereira Motta;S;IDA;N
+I0019;I0030;7.4;Rua Maria Barbara de Oliveira;S;IDA;N
+I0019;I0065;60.3;Travessa Maria Bárbara de Oliveira;S;AMBOS;N
+I0020;I0029;3.5;via sem nome;S;IDA;N
+I0021;I0025;20.4;Rua Filogonio Motta;S;IDA;N
+I0021;I0040;11.0;faixa de travessia;S;NENHUM;N
+I0023;I0018;6.2;Rua Italina Pereira Motta;S;IDA;N
+I0023;I0020;7.1;via sem nome;S;IDA;N
+I0025;I0031;60.7;Rua Filogônio Motta;S;IDA;N
+I0025;I0041;10.8;Rua Fortunato Abreu Gagno;S;IDA;N
+I0026;I0028;1.8;Praça Miguel Arcanjo Fraga;S;IDA;N
+I0027;I0015;21.4;Praça Miguel Arcanjo Fraga;S;IDA;N
+I0027;I0037;10.5;Rua Milton Ramalho Simões;S;AMBOS;N
+I0028;I0027;1.8;Praça Miguel Arcanjo Fraga;S;IDA;N
+I0029;I0021;10.3;Rua Filogonio Motta;S;IDA;N
+I0029;I0042;10.7;via sem nome;S;IDA;N
+I0030;I0066;64.6;Rua Maria Barbara de Oliveira;S;IDA;N
+I0031;I0033;51.2;Rua Filogônio Motta;S;IDA;N
+I0031;I0049;9.8;Rua Orlando Caliman;S;IDA;N
+I0033;I0034;9.4;Rua Filogônio Motta;S;IDA;N
+I0033;I0052;11.5;faixa de travessia;S;NENHUM;N
+I0034;I0022;6.8;Rua Julia Lacourt Penna;S;IDA;N
+I0034;I0039;61.3;Rua Filogônio Motta;S;IDA;N
+I0035;I0038;4.1;faixa de travessia;S;NENHUM;N
+I0036;I0023;9.0;via sem nome;S;IDA;N
+I0037;I0032;3.7;faixa de travessia;S;NENHUM;N
+I0037;I0068;97.2;Rua Milton Ramalho Simões;S;AMBOS;N
+I0038;I0026;11.1;Rua Sesostres Andrade;S;IDA;N
+I0038;I0047;4.3;faixa de travessia;S;NENHUM;N
+I0039;I0043;35.4;Rua Filogônio Motta;S;IDA;N
+I0039;I0054;12.0;Rua Silvino Grecco;S;IDA;N
+I0040;I0042;10.0;Rua Filogonio Motta;S;IDA;N
+I0041;I0040;20.9;Rua Filogonio Motta;S;IDA;N
+I0042;I0048;3.0;via sem nome;S;IDA;N
+I0043;I0044;20.6;Rua Filogonio Motta;S;IDA;N
+I0044;I0045;5.2;Rua Filogonio Motta;S;IDA;N
+I0044;I0056;13.5;faixa de travessia;S;NENHUM;N
+I0045;P0001;13.0;Rua Carlos Martins;S;AMBOS;N
+I0046;I0037;5.3;faixa de travessia;S;NENHUM;N
+I0048;I0036;12.4;via sem nome;S;IDA;N
+I0048;I0055;15.5;Rua Italina Pereira Motta;S;IDA;N
+I0049;I0041;60.1;Rua Filogônio Motta;S;IDA;N
+I0049;I0099;186.8;Rua Orlando Caliman;S;IDA;N
+I0050;I0060;19.5;Avenida Ranulpho Barbosa dos Santos;S;AMBOS;N
+I0051;I0036;12.1;Rua Italina Pereira Motta;S;IDA;N
+I0051;I0055;10.8;faixa de travessia;S;NENHUM;N
+I0052;I0049;51.5;Rua Filogônio Motta;S;IDA;N
+I0053;I0034;11.4;Rua Julia Lacourt Penna;S;IDA;N
+I0053;I0052;9.4;Rua Filogônio Motta;S;IDA;N
+I0054;I0053;60.9;Rua Filogônio Motta;S;IDA;N
+I0054;I0101;184.1;Rua Silvino Grecco;S;IDA;N
+I0055;I0062;20.0;Rua Italina Pereira Motta;S;IDA;N
+I0056;P0003;20.4;Rua Filogonio Motta;S;IDA;N
+I0057;I0045;13.2;Rua Carlos Martins;S;AMBOS;N
+I0057;I0056;4.7;Rua Filogonio Motta;S;IDA;N
+I0058;I0038;22.1;Rua Sesostres Andrade;S;IDA;N
+I0060;I0078;119.7;Avenida Ranulpho Barbosa dos Santos;S;AMBOS;N
+I0061;I0070;51.4;Rua José Anchieta Fontana;S;IDA;N
+I0062;I0097;158.1;Rua Elzira Vivacqua;S;IDA;N
+I0062;P0006;29.1;Rua Italina Pereira Motta;S;IDA;N
+I0063;I0059;16.5;via de serviço;S;AMBOS;N
+I0063;P0004;16.7;Rua Italina Pereira Motta;S;IDA;N
+I0064;I0061;152.2;Rua Darly Antônio Lima;S;IDA;N
+I0064;I0077;61.2;Rua José Celso Cláudio;S;AMBOS;N
+I0065;I0063;8.1;Rua Italina Pereira Motta;S;IDA;N
+I0066;I0058;23.7;Rua Sesostres Andrade;S;IDA;N
+I0066;I0083;147.8;Rua Maria Barbara de Oliveira;S;AMBOS;N
+I0068;I0008;91.7;Rua Ricardo Figueiredo;S;IDA;N
+I0068;I0076;41.5;Rua Milton Ramalho Simões;S;AMBOS;N
+I0069;I0065;59.6;Rua Italina Pereira Motta;S;IDA;N
+I0069;I0073;11.6;faixa de travessia;S;NENHUM;N
+I0072;I0066;60.9;Rua Sesostres Andrade;S;IDA;N
+I0072;I0069;10.8;Rua Italina Pereira Motta;S;IDA;N
+I0073;I0074;2.6;Rua Italina Pereira Motta;S;IDA;N
+I0074;I0084;83.3;Rua Italina Pereira Motta;S;IDA;N
+I0075;I0070;8.3;Rua José Anchieta Fontana;S;IDA;N
+I0075;I0077;147.2;Rua Dora Vivacqua;S;IDA;N
+I0076;I0081;44.7;Rua Milton Ramalho Simões;S;AMBOS;N
+I0076;I0083;58.3;Rua Alcides Vianna;S;IDA;N
+I0077;I0081;23.9;Rua José Celso Cláudio;S;AMBOS;N
+I0078;I0085;72.6;Avenida Ranulpho Barbosa dos Santos;S;AMBOS;N
+I0078;I0087;53.1;Rua Carlos Delegado Guerra Pinto;S;IDA;N
+I0079;I0080;9.8;via de serviço;S;AMBOS;N
+I0080;I0072;47.9;Rua Italina Pereira Motta;S;IDA;N
+I0081;I0088;40.9;Rua José Celso Cláudio;S;AMBOS;N
+I0082;I0080;26.5;Rua Italina Pereira Motta;S;IDA;N
+I0082;I0084;9.4;Rua João de Oliveira Soares;S;IDA;N
+I0083;I0094;63.1;Rua Alcides Vianna;S;IDA;N
+I0083;I0106;108.0;Rua Maria Barbara de Oliveira;S;AMBOS;N
+I0084;I0093;41.4;Rua João de Oliveira Soares;S;IDA;N
+I0084;P0008;28.0;Rua Italina Pereira Motta;S;IDA;N
+I0085;I0095;47.5;Avenida Ranulpho Barbosa dos Santos;S;AMBOS;N
+I0086;I0075;66.2;Rua José Anchieta Fontana;S;IDA;N
+I0087;I0085;51.6;Rua Alipio da Costa e Silva;S;IDA;N
+I0087;I0137;229.2;Rua Carlos Delegado Guerra Pinto;S;IDA;N
+I0088;I0086;148.3;Rua Dulce de Brito Espíndula;S;IDA;N
+I0088;I0106;49.0;Rua José Celso Cláudio;S;AMBOS;N
+I0089;I0060;138.4;Rua Euripedes Queiroz do Valle;S;IDA;N
+I0089;I0087;85.3;Rua Alipio da Costa e Silva;S;IDA;N
+I0090;I0089;81.7;Rua Alipio da Costa e Silva;S;IDA;N
+I0091;I0024;183.4;Rua Gelú Vervloet dos Santos;S;IDA;N
+I0091;I0090;78.1;Rua Alipio da Costa e Silva;S;AMBOS;N
+I0092;I0105;29.2;Rua Italina Pereira Motta;S;IDA;N
+I0093;I0092;42.8;Rua Wellington de Freitas;S;IDA;N
+I0093;I0126;178.3;Rua João de Oliveira Soares;S;IDA;N
+I0094;I0082;74.1;Rua Italina Pereira Motta;S;IDA;N
+I0095;I0104;22.9;Avenida Ranulpho Barbosa dos Santos;S;AMBOS;N
+I0095;P0007;66.8;Rua Carlos Martins;S;AMBOS;N
+I0096;I0074;100.0;Rua Alice Bumachar Neffa;S;IDA;N
+I0096;I0093;59.2;Rua Wellington de Freitas;S;IDA;N
+I0097;I0096;59.2;Rua Wellington de Freitas;S;IDA;N
+I0097;I0129;180.3;Rua Elzira Vivacqua;S;IDA;N
+I0098;I0041;187.2;Rua Fortunato Abreu Gagno;S;AMBOS;N
+I0098;I0097;60.8;Rua Wellington de Freitas;S;IDA;N
+I0099;I0098;58.8;Rua Wellington de Freitas;S;IDA;N
+I0099;I0125;164.7;Rua Orlando Caliman;S;IDA;N
+I0100;I0053;186.0;Rua Julia Lacourt Penna;S;IDA;N
+I0100;I0099;62.0;Rua Wellington de Freitas;S;IDA;N
+I0101;I0100;59.6;Rua Wellington de Freitas;S;IDA;N
+I0101;I0111;47.9;Rua Silvino Grecco;S;IDA;N
+I0102;I0101;41.2;Rua Wellington de Freitas;S;AMBOS;N
+I0103;I0107;11.0;faixa de travessia;S;NENHUM;N
+I0103;P0009;14.5;Rua Italina Pereira Motta;S;IDA;N
+I0104;I0111;67.2;Avenida Ranulpho Barbosa dos Santos;S;AMBOS;N
+I0105;I0107;11.8;Rua Italina Pereira Motta;S;IDA;N
+I0106;I0110;10.7;Rua José Celso Cláudio;S;AMBOS;N
+I0107;P0011;52.2;Rua Italina Pereira Motta;S;IDA;N
+I0108;I0086;61.5;Rua José Anchieta Fontana;S;IDA;N
+I0108;I0110;147.7;Rua Aurora de Aguiar Ferreira;S;IDA;N
+I0109;I0105;12.4;Rua Paschoal del Maestro;S;IDA;N
+I0110;I0113;68.4;Rua José Celso Cláudio;S;AMBOS;N
+I0111;I0116;86.1;Avenida Ranulpho Barbosa dos Santos;S;AMBOS;N
+I0111;I0135;132.9;Rua Silvino Grecco;S;IDA;N
+I0112;I0114;51.2;Rua Italina Pereira Motta;S;IDA;N
+I0112;I0123;98.0;Rua Pedro Bussato;S;IDA;N
+I0113;I0115;9.3;Rua José Celso Cláudio;S;AMBOS;N
+I0114;I0115;24.7;via sem nome;S;IDA;N
+I0114;I0119;32.9;Rua Italina Pereira Motta;S;IDA;N
+I0115;I0103;142.7;Rua Italina Pereira Motta;S;IDA;N
+I0115;I0119;17.3;Rua José Celso Cláudio;S;AMBOS;N
+I0116;I0100;106.9;Rua Julia Lacourt Penna;S;IDA;N
+I0116;I0118;18.1;Avenida Ranulpho Barbosa dos Santos;S;AMBOS;N
+I0117;I0090;174.3;Rua Domingos Povoa Lemos;S;AMBOS;N
+I0117;I0091;145.2;Rua Gelú Vervloet dos Santos;S;IDA;N
+I0118;I0125;64.1;Avenida Ranulpho Barbosa dos Santos;S;AMBOS;N
+I0119;I0122;39.1;Rua José Celso Cláudio;S;AMBOS;N
+I0120;I0116;17.7;Rua Julia Lacourt Penna;S;IDA;N
+I0120;I0118;16.3;via sem nome;S;IDA;N
+I0121;I0122;87.0;Rua Agenor Amaro dos Santos;S;IDA;N
+I0121;I0144;87.0;Rua Doutor João Batista Miranda Amaral;S;IDA;N
+I0122;I0123;61.2;Rua Agenor Amaro dos Santos;S;IDA;N
+I0122;I0145;88.8;Rua José Celso Cláudio;S;AMBOS;N
+I0123;I0124;59.3;Rua Agenor Amaro dos Santos;S;IDA;N
+I0123;I0146;89.0;Rua Pedro Bussato;S;IDA;N
+I0124;I0109;143.4;Rua Paschoal del Maestro;S;IDA;N
+I0124;I0126;59.4;Rua Agenor Amaro dos Santos;S;IDA;N
+I0125;I0132;21.5;Avenida Ranulpho Barbosa dos Santos;S;AMBOS;N
+I0125;I0133;14.1;Rua Orlando Caliman;S;IDA;N
+I0126;I0127;59.7;Rua Agenor Amaro dos Santos;S;IDA;N
+I0126;I0149;89.0;Rua João de Oliveira Soares;S;IDA;N
+I0127;I0096;179.2;Rua Alice Bumachar Neffa;S;IDA;N
+I0127;I0129;61.1;Rua Agenor Amaro dos Santos;S;IDA;N
+I0128;I0117;60.6;Rua Gelú Vervloet dos Santos;S;IDA;N
+I0128;I0139;44.7;via de serviço;S;AMBOS;N
+I0129;I0130;52.0;Rua Agenor Amaro dos Santos;S;AMBOS;N
+I0129;I0152;85.1;Rua Elzira Vivacqua;S;IDA;N
+I0130;I0131;6.4;calçada/passagem;S;AMBOS;N
+I0131;I0132;46.9;Rua Agenor Amaro dos Santos;S;IDA;N
+I0131;P0010;155.9;Rua Fortunato Abreu Gagno;S;AMBOS;N
+I0132;I0133;15.2;Rua Agenor Amaro dos Santos;S;IDA;N
+I0132;I0142;66.3;Avenida Ranulpho Barbosa dos Santos;S;AMBOS;N
+I0133;I0134;60.3;Rua Agenor Amaro dos Santos;S;IDA;N
+I0133;I0155;84.1;Rua Orlando Caliman;S;IDA;N
+I0134;I0120;55.7;Rua Julia Lacourt Penna;S;IDA;N
+I0134;I0135;58.5;Rua Agenor Amaro dos Santos;S;IDA;N
+I0135;I0136;62.2;Rua Agenor Amaro dos Santos;S;IDA;N
+I0135;I0157;83.9;Rua Silvino Grecco;S;IDA;N
+I0136;I0137;86.0;Rua Agenor Amaro dos Santos;S;IDA;N
+I0136;P0012;134.4;Rua Carlos Martins;S;AMBOS;N
+I0137;I0138;85.4;Rua Agenor Amaro dos Santos;S;IDA;N
+I0137;I0159;85.1;Rua Carlos Delegado Guerra Pinto;S;IDA;N
+I0138;I0089;229.8;Rua Euripedes Queiroz do Valle;S;IDA;N
+I0138;I0139;85.0;Rua Agenor Amaro dos Santos;S;AMBOS;N
+I0139;I0140;2.3;Rua Agenor Amaro dos Santos;S;AMBOS;N
+I0140;I0141;18.4;Rua Agenor Amaro dos Santos;S;NENHUM;N
+I0141;I0128;32.8;Rua Gelú Vervloet dos Santos;S;IDA;N
+I0142;I0131;46.4;Rua Fortunato Abreu Gagno;S;AMBOS;N
+I0142;I0150;53.5;Avenida Ranulpho Barbosa dos Santos;S;AMBOS;N
+I0144;I0143;2.8;Rua Milton Manoel dos Santos;S;IDA;N
+I0144;I0163;89.3;Rua Doutor João Batista Miranda Amaral;S;IDA;N
+I0145;I0144;86.0;Rua Milton Manoel dos Santos;S;IDA;N
+I0145;P0017;42.9;Rua José Celso Cláudio;S;AMBOS;N
+I0146;I0145;59.7;Rua Milton Manoel dos Santos;S;IDA;N
+I0146;I0173;150.2;Rua Pedro Bussato;S;IDA;N
+I0147;I0124;90.3;Rua Paschoal del Maestro;S;IDA;N
+I0147;I0146;60.5;Rua Milton Manoel dos Santos;S;IDA;N
+I0148;I0147;3.8;Rua Milton Manoel dos Santos;S;IDA;N
+I0149;I0148;55.8;Rua Milton Manoel dos Santos;S;IDA;N
+I0149;I0168;134.8;Rua João de Oliveira Soares;S;IDA;N
+I0150;I0152;18.5;Rua Milton Manoel dos Santos;S;IDA;N
+I0150;I0160;30.2;Avenida Ranulpho Barbosa dos Santos;S;AMBOS;N
+I0151;I0127;89.1;Rua Alice Bumachar Neffa;S;IDA;N
+I0151;I0149;59.3;Rua Milton Manoel dos Santos;S;IDA;N
+I0152;I0151;63.2;Rua Milton Manoel dos Santos;S;IDA;N
+I0152;I0160;20.3;Rua Elzira Vivacqua;S;IDA;N
+I0153;I0154;8.6;calçada/passagem;S;NENHUM;N
+I0154;I0150;36.5;Rua Milton Manoel dos Santos;S;IDA;N
+I0154;P0015;4.0;Rua Fortunato Abreu Gagno;S;AMBOS;N
+I0155;I0153;52.0;Rua Milton Manoel dos Santos;S;AMBOS;N
+I0155;I0181;153.9;Rua Orlando Caliman;S;IDA;N
+I0156;I0134;83.3;Rua Julia Lacourt Penna;S;IDA;N
+I0156;I0155;60.7;Rua Milton Manoel dos Santos;S;IDA;N
+I0157;I0156;58.1;Rua Milton Manoel dos Santos;S;IDA;N
+I0157;I0183;153.1;Rua Silvino Grecco;S;IDA;N
+I0158;I0157;63.9;Rua Milton Manoel dos Santos;S;IDA;N
+I0158;P0014;17.4;Rua Carlos Martins;S;AMBOS;N
+I0159;I0158;86.8;Rua Milton Manoel dos Santos;S;IDA;N
+I0159;I0185;153.5;Rua Carlos Delegado Guerra Pinto;S;IDA;N
+I0160;I0164;83.1;Avenida Ranulpho Barbosa dos Santos;S;AMBOS;N
+I0160;I0179;132.3;Rua Elzira Vivacqua;S;IDA;N
+I0161;I0138;85.6;Rua Euripedes Queiroz do Valle;S;IDA;N
+I0161;I0159;83.4;Rua Milton Manoel dos Santos;S;IDA;N
+I0163;I0162;6.3;via sem nome;S;AMBOS;N
+I0163;I0171;61.8;Rua Doutor João Batista Miranda Amaral;S;IDA;N
+I0164;I0151;74.2;Rua Alice Bumachar Neffa;S;IDA;N
+I0164;I0165;13.9;Avenida Ranulpho Barbosa dos Santos;S;AMBOS;N
+I0165;I0168;69.5;Avenida Ranulpho Barbosa dos Santos;S;AMBOS;N
+I0166;I0164;16.6;Rua Alice Bumachar Neffa;S;IDA;N
+I0166;I0165;12.5;via sem nome;S;IDA;N
+I0167;I0147;135.4;Rua Paschoal del Maestro;S;IDA;N
+I0167;I0169;51.3;via de serviço;N;IDA;N
+I0168;I0176;13.8;Rua João de Oliveira Soares;S;IDA;N
+I0168;I0177;19.1;Avenida Ranulpho Barbosa dos Santos;S;AMBOS;N
+I0169;I0174;8.2;via de serviço;S;IDA;N
+I0170;I0171;9.5;Rua Ruy Pinto Bandeira;S;IDA;N
+I0171;I0172;86.8;Rua Ruy Pinto Bandeira;S;IDA;N
+I0171;I0198;163.0;Rua Doutor João Batista Miranda Amaral;S;IDA;N
+I0172;I0173;59.8;Rua Ruy Pinto Bandeira;S;IDA;N
+I0172;P0020;145.5;Rua José Celso Cláudio;S;AMBOS;N
+I0173;I0174;13.2;Rua Ruy Pinto Bandeira;S;IDA;N
+I0173;I0193;108.1;Rua Pedro Bussato;S;IDA;N
+I0174;I0175;46.2;Rua Ruy Pinto Bandeira;S;IDA;N
+I0175;I0167;13.9;Rua Paschoal del Maestro;S;IDA;N
+I0175;I0177;48.3;Rua Ruy Pinto Bandeira;S;IDA;N
+I0176;I0178;60.1;Rua Ruy Pinto Bandeira;S;IDA;N
+I0176;I0196;146.5;Rua João de Oliveira Soares;S;IDA;N
+I0177;I0176;11.8;Rua Ruy Pinto Bandeira;S;IDA;N
+I0177;I0188;68.7;Avenida Ranulpho Barbosa dos Santos;S;AMBOS;N
+I0178;I0166;57.7;Rua Alice Bumachar Neffa;S;IDA;N
+I0178;I0179;61.4;Rua Ruy Pinto Bandeira;S;IDA;N
+I0179;I0180;57.2;Rua Ruy Pinto Bandeira;S;IDA;N
+I0179;I0199;145.2;Rua Elzira Vivacqua;S;IDA;N
+I0180;I0181;61.3;Rua Ruy Pinto Bandeira;S;IDA;N
+I0180;P0018;9.7;Rua Fortunato Abreu Gagno;S;AMBOS;N
+I0181;I0182;57.2;Rua Ruy Pinto Bandeira;S;IDA;N
+I0181;I0204;147.5;Rua Orlando Caliman;S;IDA;N
+I0182;I0156;153.7;Rua Julia Lacourt Penna;S;IDA;N
+I0182;I0183;61.8;Rua Ruy Pinto Bandeira;S;IDA;N
+I0183;I0184;63.0;Rua Ruy Pinto Bandeira;S;IDA;N
+I0183;I0207;145.0;Rua Silvino Grecco;S;IDA;N
+I0184;I0158;152.2;Rua Carlos Martins;S;AMBOS;N
+I0184;I0185;86.2;Rua Ruy Pinto Bandeira;S;IDA;N
+I0185;I0186;87.7;Rua Ruy Pinto Bandeira;S;AMBOS;N
+I0185;I0210;145.3;Rua Carlos Delegado Guerra Pinto;S;IDA;N
+I0186;I0161;153.7;Rua Euripedes Queiroz do Valle;S;IDA;N
+I0187;I0141;247.8;Rua Gelú Vervloet dos Santos;S;IDA;N
+I0187;I0186;46.2;Rua Ruy Pinto Bandeira;S;IDA;N
+I0188;I0175;48.5;Rua Paschoal del Maestro;S;IDA;N
+I0188;I0189;12.1;Avenida Ranulpho Barbosa dos Santos;S;AMBOS;N
+I0189;I0193;72.9;Avenida Ranulpho Barbosa dos Santos;S;AMBOS;N
+I0190;I0191;6.7;via de serviço;S;AMBOS;N
+I0190;P0021;82.8;Rua Gelú Vervloet dos Santos;S;IDA;N
+I0191;I0067;662.1;ciclovia;N;AMBOS;S
+I0191;I0192;8.3;via de serviço;S;AMBOS;N
+I0192;I0071;635.0;calçada/passagem;S;NENHUM;N
+I0193;I0208;88.4;Avenida Ranulpho Barbosa dos Santos;S;AMBOS;N
+I0193;I0251;151.0;Rua Pedro Bussato;S;IDA;N
+I0194;I0187;100.1;Rua Gelú Vervloet dos Santos;S;IDA;N
+I0195;I0188;95.9;Rua Paschoal del Maestro;S;IDA;N
+I0196;I0195;58.8;Rua Antônio Araújo Lyra;S;IDA;N
+I0196;I0264;148.8;Rua João de Oliveira Soares;S;IDA;N
+I0197;I0178;145.1;Rua Alice Bumachar Neffa;S;IDA;N
+I0197;I0196;59.5;Rua Antônio Araújo Lyra;S;IDA;N
+I0198;I0200;10.4;calçada/passagem;S;NENHUM;N
+I0198;I0205;8.4;Rua Doutor João Batista Miranda Amaral;S;IDA;N
+I0199;I0197;61.6;Rua Antônio Araújo Lyra;S;IDA;N
+I0199;I0273;178.7;Rua Elzira Vivacqua;S;IDA;N
+I0200;I0212;18.6;calçada/passagem;S;NENHUM;N
+I0201;I0200;38.3;calçada/passagem;S;NENHUM;N
+I0202;I0180;147.7;Rua Fortunato Abreu Gagno;S;AMBOS;N
+I0202;I0199;59.0;Rua Antônio Araújo Lyra;S;IDA;N
+I0203;I0201;36.3;calçada/passagem;S;AMBOS;N
+I0203;I0208;6.7;Rua José Celso Cláudio;S;AMBOS;N
+I0204;I0202;62.5;Rua Antônio Araújo Lyra;S;IDA;N
+I0204;I0285;210.5;Rua Orlando Caliman;S;IDA;N
+I0205;I0219;33.3;Rua Doutor João Batista Miranda Amaral;S;AMBOS;N
+I0206;I0182;146.3;Rua Julia Lacourt Penna;S;IDA;N
+I0206;I0204;58.4;Rua Antônio Araújo Lyra;S;IDA;N
+I0207;I0206;58.4;Rua Antônio Araújo Lyra;S;IDA;N
+I0207;I0262;120.0;Rua Silvino Grecco;S;IDA;N
+I0209;I0207;65.7;Rua Antônio Araújo Lyra;S;IDA;N
+I0209;P0019;40.8;Rua Carlos Martins;S;AMBOS;N
+I0210;I0209;84.9;Rua Antônio Araújo Lyra;S;IDA;N
+I0210;I0263;181.3;Rua Carlos Delegado Guerra Pinto;S;IDA;N
+I0211;I0210;15.7;Rua Antônio Araújo Lyra;S;AMBOS;N
+I0211;I0214;5.4;via de serviço;S;AMBOS;N
+I0212;I0220;21.2;calçada/passagem;S;NENHUM;N
+I0213;I0211;70.6;Rua Antônio Araújo Lyra;S;AMBOS;N
+I0215;I0194;46.8;Rua Gelú Vervloet dos Santos;S;IDA;N
+I0215;I0213;9.1;calçada/passagem;S;NENHUM;N
+I0216;I0201;23.9;calçada/passagem;S;NENHUM;N
+I0216;I0212;30.0;calçada/passagem;S;NENHUM;N
+I0217;I0191;93.4;ciclovia;N;AMBOS;S
+I0217;I0224;22.6;Rua Gelú Vervloet dos Santos;S;IDA;N
+I0218;I0215;12.3;Rua Gelú Vervloet dos Santos;S;IDA;N
+I0220;I0216;36.4;calçada/passagem;S;NENHUM;N
+I0220;I0223;8.1;calçada/passagem;S;NENHUM;N
+I0221;I0194;68.7;Avenida Dante Michelini;S;IDA;N
+I0221;I0217;23.0;ciclovia;N;AMBOS;S
+I0222;I0223;2.3;calçada/passagem;S;NENHUM;N
+I0223;I0226;18.8;calçada/passagem;S;NENHUM;N
+I0224;I0192;114.8;calçada/passagem;S;NENHUM;N
+I0224;I0250;50.6;Rua Gelú Vervloet dos Santos;S;IDA;N
+I0225;I0208;41.4;Rua José Celso Cláudio;S;AMBOS;N
+I0225;I0227;10.2;Rua José Celso Cláudio;S;IDA;N
+I0226;I0216;31.3;calçada/passagem;S;NENHUM;N
+I0226;I0229;43.5;calçada/passagem;S;NENHUM;N
+I0227;I0233;12.5;Avenida Dante Michelini;S;IDA;N
+I0227;I0235;12.8;Rua José Celso Cláudio;S;IDA;N
+I0228;I0236;46.4;Avenida Dante Michelini;S;IDA;N
+I0229;I0230;5.3;faixa de travessia;S;NENHUM;N
+I0230;I0225;23.0;Rua José Celso Cláudio;S;IDA;N
+I0230;I0233;8.3;faixa de travessia;S;NENHUM;N
+I0232;I0231;28.7;via sem nome;S;IDA;N
+I0233;I0234;2.6;faixa de travessia;S;NENHUM;N
+I0233;I0237;11.7;Avenida Dante Michelini;S;IDA;N
+I0234;I0235;2.7;faixa de travessia;S;NENHUM;N
+I0234;I0239;9.8;faixa de travessia;S;NENHUM;N
+I0235;I0241;11.4;Rua José Celso Cláudio;S;IDA;N
+I0236;I0230;24.9;Rua José Celso Cláudio;S;IDA;N
+I0236;I0237;24.3;Avenida Dante Michelini;S;IDA;N
+I0237;I0239;9.0;Avenida Dante Michelini;S;IDA;N
+I0237;I0244;16.1;Avenida Dante Michelini;S;IDA;N
+I0239;I0241;7.4;Avenida Dante Michelini;S;IDA;N
+I0239;I0249;13.1;faixa de travessia;S;NENHUM;N
+I0240;I0238;24.9;ciclovia;N;AMBOS;S
+I0240;I0256;79.7;ciclovia;N;AMBOS;S
+I0241;I0251;54.6;Avenida Dante Michelini;S;IDA;N
+I0242;I0221;40.2;ciclovia;N;AMBOS;S
+I0242;I0245;7.6;via sem nome;S;IDA;N
+I0243;I0248;34.4;calçada/passagem;S;NENHUM;N
+I0244;I0232;61.4;Avenida Dante Michelini;S;IDA;N
+I0245;I0221;44.2;Avenida Dante Michelini;S;IDA;N
+I0245;I0247;2.7;via sem nome;S;IDA;N
+I0246;I0242;23.1;via sem nome;S;IDA;N
+I0246;P0024;41.4;Rua Gelú Vervloet dos Santos;S;IDA;N
+I0247;I0224;45.9;calçada/passagem;S;NENHUM;N
+I0247;I0250;7.7;via sem nome;S;IDA;N
+I0248;I0252;21.7;calçada/passagem;S;NENHUM;N
+I0249;I0244;19.6;Avenida Dante Michelini;S;IDA;N
+I0249;I0256;12.2;faixa de travessia;S;NENHUM;N
+I0250;I0306;176.2;Rua Gelú Vervloet dos Santos;S;IDA;N
+I0251;I0259;64.6;Avenida Dante Michelini;S;IDA;N
+I0252;I0257;22.9;calçada/passagem;S;NENHUM;N
+I0253;I0245;13.2;Avenida Dante Michelini;S;IDA;N
+I0253;I0247;12.0;calçada/passagem;S;NENHUM;N
+I0254;I0249;34.7;Avenida Dante Michelini;S;IDA;N
+I0256;I0257;2.0;faixa de travessia;S;NENHUM;N
+I0256;I0287;368.2;ciclovia;N;AMBOS;S
+I0257;I0267;131.5;calçada/passagem;S;NENHUM;N
+I0258;I0260;12.2;calçada/passagem;S;NENHUM;N
+I0259;I0195;131.1;Rua Paschoal del Maestro;S;IDA;N
+I0259;I0264;60.5;Avenida Dante Michelini;S;IDA;N
+I0261;I0254;69.0;via de serviço;S;IDA;N
+I0261;P0025;20.0;Avenida Dante Michelini;S;IDA;N
+I0262;I0255;56.2;via de serviço;S;AMBOS;N
+I0262;I0303;139.6;Rua Silvino Grecco;S;IDA;N
+I0263;P0022;105.0;Rua Carlos Martins;S;AMBOS;N
+I0264;I0266;39.3;Avenida Dante Michelini;S;IDA;N
+I0265;I0259;38.4;via sem nome;S;IDA;N
+I0265;I0261;59.9;Avenida Dante Michelini;S;IDA;N
+I0266;I0268;24.7;Avenida Dante Michelini;S;IDA;N
+I0266;I0272;34.1;via sem nome;S;IDA;N
+I0267;I0269;17.6;calçada/passagem;S;NENHUM;N
+I0268;I0197;164.5;Rua Alice Bumachar Neffa;S;IDA;N
+I0268;P0026;30.9;Avenida Dante Michelini;S;IDA;N
+I0269;I0271;38.7;calçada/passagem;S;NENHUM;N
+I0269;I0284;69.3;calçada/passagem;S;NENHUM;N
+I0270;I0267;39.8;escadaria;S;NENHUM;N
+I0271;I0289;171.6;calçada/passagem;S;NENHUM;N
+I0272;I0265;97.6;Avenida Dante Michelini;S;IDA;N
+I0273;I0277;50.8;Avenida Dante Michelini;S;IDA;N
+I0274;I0258;167.1;calçada/passagem;S;NENHUM;N
+I0275;I0274;2.7;calçada/passagem;S;NENHUM;N
+I0275;I0295;51.7;calçada/passagem;S;NENHUM;N
+I0276;P0027;15.6;Rua Carlos Martins;S;AMBOS;N
+I0277;I0278;9.1;Avenida Dante Michelini;S;IDA;N
+I0277;I0281;13.7;faixa de travessia;S;NENHUM;N
+I0278;I0285;67.2;Avenida Dante Michelini;S;IDA;N
+I0278;P0028;17.6;Rua Fortunato Abreu Gagno;S;AMBOS;N
+I0279;I0280;4.6;via de serviço;S;AMBOS;N
+I0280;I0276;54.6;via de serviço;S;AMBOS;N
+I0280;I0292;29.7;via de serviço;S;AMBOS;N
+I0281;I0272;108.0;Avenida Dante Michelini;S;IDA;N
+I0281;I0287;15.2;calçada/passagem;S;NENHUM;N
+I0282;I0274;79.7;calçada/passagem;S;NENHUM;N
+I0282;I0283;2.1;calçada/passagem;S;NENHUM;N
+I0284;I0270;47.4;calçada/passagem;S;NENHUM;N
+I0284;I0282;11.0;calçada/passagem;S;NENHUM;N
+I0285;I0296;60.0;Avenida Dante Michelini;S;IDA;N
+I0286;I0278;32.0;via sem nome;S;IDA;N
+I0286;I0281;34.2;Avenida Dante Michelini;S;IDA;N
+I0287;I0291;3.8;calçada/passagem;S;NENHUM;N
+I0287;I0332;254.4;ciclovia;N;AMBOS;S
+I0289;I0290;2.1;calçada/passagem;S;NENHUM;N
+I0289;I0291;9.8;calçada/passagem;S;NENHUM;N
+I0291;I0310;151.0;calçada/passagem;S;NENHUM;N
+I0293;I0290;23.4;escadaria;S;NENHUM;N
+I0295;I0283;119.3;calçada/passagem;S;NENHUM;N
+I0295;I0294;9.1;trilha;S;NENHUM;N
+I0296;I0206;233.7;Rua Julia Lacourt Penna;S;IDA;N
+I0296;I0303;66.0;Avenida Dante Michelini;S;IDA;N
+I0297;I0288;72.8;calçada/passagem;S;NENHUM;N
+I0297;I0293;7.6;calçada/passagem;S;NENHUM;N
+I0298;I0271;76.6;trilha;S;NENHUM;N
+I0299;I0307;25.5;via de serviço;S;AMBOS;N
+I0300;I0246;169.4;Rua Gelú Vervloet dos Santos;S;IDA;N
+I0300;I0301;41.7;Avenida Dante Michelini;S;IDA;N
+I0301;I0242;176.1;ciclovia;N;AMBOS;S
+I0301;I0302;8.1;Avenida Dante Michelini;S;IDA;N
+I0302;I0253;164.8;calçada/passagem;S;NENHUM;N
+I0302;I0311;22.4;Avenida Dante Michelini;S;IDA;N
+I0303;P0030;37.8;Avenida Dante Michelini;S;IDA;N
+I0304;I0286;136.9;Avenida Dante Michelini;S;IDA;N
+I0305;I0297;49.7;calçada/passagem;S;NENHUM;N
+I0306;I0323;23.8;Rua Gelú Vervloet dos Santos;S;IDA;N
+I0307;I0313;12.6;via de serviço;S;AMBOS;N
+I0308;I0305;35.9;calçada/passagem;S;NENHUM;N
+I0309;I0320;18.0;via de serviço;S;AMBOS;N
+I0310;I0315;8.7;calçada/passagem;S;NENHUM;N
+I0310;I0336;103.5;calçada/passagem;S;NENHUM;N
+I0311;I0253;181.1;Avenida Dante Michelini;S;IDA;N
+I0311;I0316;7.7;via sem nome;S;IDA;N
+I0312;I0309;14.9;via de serviço;S;AMBOS;N
+I0313;I0320;20.7;via de serviço;S;AMBOS;N
+I0314;I0276;92.3;Rua Carlos Martins;S;AMBOS;N
+I0314;I0313;10.0;via de serviço;S;AMBOS;N
+I0316;I0302;25.5;calçada/passagem;S;NENHUM;N
+I0316;I0319;2.6;via sem nome;S;IDA;N
+I0317;I0314;12.6;via de serviço;S;AMBOS;N
+I0317;I0322;13.0;Avenida Dante Michelini;S;IDA;N
+I0318;I0304;34.3;via de serviço;S;IDA;N
+I0319;I0301;34.4;ciclovia;N;AMBOS;S
+I0319;I0327;98.5;via sem nome;S;IDA;N
+I0320;I0326;31.9;via de serviço;S;AMBOS;N
+I0320;I0330;14.7;via de serviço;S;AMBOS;N
+I0321;I0305;21.9;calçada/passagem;S;NENHUM;N
+I0322;I0314;8.9;Rua Carlos Martins;S;AMBOS;N
+I0322;I0330;25.9;Avenida Dante Michelini;S;IDA;N
+I0323;I0339;36.7;Rua Gelú Vervloet dos Santos;S;IDA;N
+I0324;I0318;36.7;via de serviço;S;IDA;N
+I0324;P0029;32.6;Avenida Dante Michelini;S;IDA;N
+I0326;I0312;22.4;via de serviço;S;AMBOS;N
+I0326;I0334;15.8;via de serviço;S;AMBOS;N
+I0327;I0300;50.4;Avenida Dante Michelini;S;IDA;N
+I0328;I0317;14.1;faixa de travessia;S;NENHUM;N
+I0328;I0324;15.1;Avenida Dante Michelini;S;IDA;N
+I0329;I0311;23.4;Avenida Dante Michelini;S;IDA;N
+I0329;I0333;11.9;via sem nome;S;IDA;N
+I0330;I0334;30.5;Avenida Dante Michelini;S;IDA;N
+I0331;I0322;14.2;via sem nome;S;IDA;N
+I0332;I0328;14.2;faixa de travessia;S;NENHUM;N
+I0332;I0374;208.2;ciclovia;N;AMBOS;S
+I0333;I0316;29.3;calçada/passagem;S;NENHUM;N
+I0333;I0335;2.7;via sem nome;S;IDA;N
+I0334;I0341;31.4;Avenida Dante Michelini;S;IDA;N
+I0335;I0319;30.1;ciclovia;N;AMBOS;S
+I0335;I0354;44.3;via sem nome;S;IDA;N
+I0336;I0332;4.0;faixa de travessia;S;NENHUM;N
+I0336;I0338;8.9;calçada/passagem;S;NENHUM;N
+I0337;I0345;32.5;calçada/passagem;S;NENHUM;N
+I0338;I0342;5.0;calçada/passagem;S;NENHUM;N
+I0338;I0355;95.2;calçada/passagem;S;NENHUM;N
+I0339;I0379;149.2;Rua Gelú Vervloet dos Santos;S;IDA;N
+I0340;I0327;27.5;Avenida Dante Michelini;S;IDA;N
+I0341;I0340;13.0;Avenida Dante Michelini;S;IDA;N
+I0342;I0337;21.3;escadaria;S;NENHUM;N
+I0343;I0340;7.5;faixa de travessia;S;NENHUM;N
+I0344;I0343;4.9;calçada/passagem;S;NENHUM;N
+I0345;I0325;83.4;calçada/passagem;S;NENHUM;N
+I0346;I0327;31.2;via sem nome;S;IDA;N
+I0346;I0344;9.2;faixa de travessia;S;NENHUM;N
+I0347;I0346;5.9;faixa de travessia;S;NENHUM;N
+I0348;I0346;6.9;via sem nome;S;IDA;N
+I0349;I0331;95.3;via sem nome;S;IDA;N
+I0350;I0328;118.0;Avenida Dante Michelini;S;IDA;N
+I0351;I0349;7.6;via sem nome;S;IDA;N
+I0351;I0350;7.1;Avenida Dante Michelini;S;IDA;N
+I0352;I0335;41.1;ciclovia;N;AMBOS;S
+I0352;I0358;19.1;ciclovia;N;AMBOS;S
+I0353;I0347;59.6;calçada/passagem;S;NENHUM;N
+I0354;I0353;6.6;faixa de travessia;S;NENHUM;N
+I0354;I0361;8.1;via sem nome;S;IDA;N
+I0355;I0369;59.5;calçada/passagem;S;NENHUM;N
+I0356;I0354;5.5;faixa de travessia;S;NENHUM;N
+I0357;I0333;55.9;calçada/passagem;S;NENHUM;N
+I0357;I0352;12.6;ciclovia;N;AMBOS;S
+I0358;I0356;8.2;calçada/passagem;S;NENHUM;N
+I0358;I0368;22.0;ciclovia;N;AMBOS;S
+I0359;I0364;18.3;escadaria;S;NENHUM;N
+I0360;I0345;76.1;trilha;S;NENHUM;N
+I0361;I0366;15.0;via sem nome;S;IDA;N
+I0362;I0357;15.3;faixa de travessia;S;NENHUM;N
+I0363;I0358;5.8;calçada/passagem;S;NENHUM;N
+I0363;I0362;2.0;calçada/passagem;S;NENHUM;N
+I0364;I0355;17.6;escadaria;S;NENHUM;N
+I0364;I0375;35.7;trilha;S;NENHUM;N
+I0365;I0363;2.4;calçada/passagem;S;NENHUM;N
+I0366;I0348;63.8;via sem nome;S;IDA;N
+I0366;I0367;9.7;via sem nome;S;IDA;N
+I0367;I0351;66.4;Avenida Dante Michelini;S;IDA;N
+I0368;I0366;14.5;via sem nome;S;IDA;N
+I0368;I0371;9.1;ciclovia;N;AMBOS;S
+I0369;I0378;52.0;calçada/passagem;S;NENHUM;N
+I0370;I0365;17.6;faixa de travessia;S;NENHUM;N
+I0370;I0368;7.6;via sem nome;S;IDA;N
+I0371;I0367;19.7;Avenida Dante Michelini;S;IDA;N
+I0371;I0374;13.3;ciclovia;N;AMBOS;S
+I0372;I0370;9.0;faixa de travessia;S;NENHUM;N
+I0372;I0371;8.0;Avenida Dante Michelini;S;IDA;N
+I0373;I0370;15.1;via sem nome;S;IDA;N
+I0374;I0376;8.6;ciclovia;N;AMBOS;S
+I0375;I0382;33.2;trilha;S;NENHUM;N
+I0376;I0372;13.4;faixa de travessia;S;NENHUM;N
+I0376;I0377;5.0;ciclovia;N;AMBOS;S
+I0378;I0376;6.6;faixa de travessia;S;NENHUM;N
+I0378;I0385;67.7;calçada/passagem;S;NENHUM;N
+I0380;I0329;179.8;Avenida Dante Michelini;S;IDA;N
+I0381;I0373;60.6;via sem nome;S;IDA;N
+I0383;I0375;42.4;trilha;S;NENHUM;N
+I0384;I0357;117.1;ciclovia;N;AMBOS;S
+I0386;I0383;21.1;trilha;S;NENHUM;N
+I0387;I0381;49.1;via sem nome;S;IDA;N
+L0001;I0095;23.8;acesso a Alice Krause Atelier;S;AMBOS;N
+L0002;I0189;28.2;acesso a Apto da Neca;S;AMBOS;N
+L0003;I0265;40.1;acesso a Auto Posto Shell;S;AMBOS;N
+L0004;I0079;7.1;acesso a Banestes;S;AMBOS;N
+L0005;I0338;15.5;acesso a Bike Vitória - Estação 19;S;AMBOS;N
+L0006;I0248;9.5;acesso a Bike Vitória - Estação 20;S;AMBOS;N
+L0007;I0331;29.1;acesso a Bike Vitória Kids - Estação 101;S;AMBOS;N
+L0008;I0307;29.4;acesso a Bristol Diamond Suites Hotel;S;AMBOS;N
+L0009;I0109;16.6;acesso a CEMEC;S;AMBOS;N
+L0010;I0208;7.1;acesso a Centro Municipal de Educação Infantil Rubens José Vervloet Gomes;S;AMBOS;N
+L0011;I0174;7.4;acesso a Clínica Odontologia Doctor Dent;S;AMBOS;N
+L0012;I0006;13.9;acesso a Drogasil;S;AMBOS;N
+L0013;I0025;30.2;acesso a Escola Municipal de Ensino Fundamental Elzira Vivacqua dos Santos;S;AMBOS;N
+L0014;I0292;26.5;acesso a Hotel Porto do Sol;S;AMBOS;N
+L0015;I0309;16.8;acesso a Hotel Porto do Sol;S;AMBOS;N
+L0016;I0199;15.6;acesso a Igreja Apostólica Batista;S;AMBOS;N
+L0017;I0195;42.3;acesso a Igreja do Senhor Jesus Cristo;S;AMBOS;N
+L0018;I0369;7.6;acesso a Ilios Beach House;S;AMBOS;N
+L0019;I0127;17.1;acesso a Instituto Amme Odontologia;S;AMBOS;N
+L0020;I0213;20.6;acesso a Le Buffet Master;S;AMBOS;N
+L0021;I0148;11.8;acesso a Lilliput Centro de Educação Infantil;S;AMBOS;N
+L0022;I0050;84.7;acesso a Raizes Gastrobar e restaurante;S;AMBOS;N
+L0023;P0011;32.2;acesso a Restaurante Come Come II;S;AMBOS;N
+L0024;I0167;56.2;acesso a Supermercado BH;S;AMBOS;N
+L0025;I0199;73.0;acesso a Táxi Executivo;S;AMBOS;N
+L0026;I0016;17.5;acesso a Underground Tattoo & Piercing;S;AMBOS;N
+P0002;I0064;30.1;Rua José Celso Cláudio;S;AMBOS;N
+P0003;I0054;36.0;Rua Filogônio Motta;S;IDA;N
+P0004;I0051;16.9;Rua Italina Pereira Motta;S;IDA;N
+P0005;I0190;679.0;Rua Gelú Vervloet dos Santos;S;IDA;N
+P0006;I0073;51.7;Rua Italina Pereira Motta;S;IDA;N
+P0007;I0057;99.2;Rua Carlos Martins;S;AMBOS;N
+P0008;I0092;31.8;Rua Italina Pereira Motta;S;IDA;N
+P0009;I0094;12.0;Rua Italina Pereira Motta;S;IDA;N
+P0010;I0098;23.0;Rua Fortunato Abreu Gagno;S;AMBOS;N
+P0011;I0112;19.2;Rua Italina Pereira Motta;S;IDA;N
+P0012;I0095;62.9;Rua Carlos Martins;S;AMBOS;N
+P0013;I0142;27.7;Rua Fortunato Abreu Gagno;S;AMBOS;N
+P0014;I0136;67.9;Rua Carlos Martins;S;AMBOS;N
+P0015;P0013;7.1;Rua Fortunato Abreu Gagno;S;AMBOS;N
+P0016;I0154;13.4;Rua Fortunato Abreu Gagno;S;AMBOS;N
+P0017;I0172;106.2;Rua José Celso Cláudio;S;AMBOS;N
+P0018;P0016;129.7;Rua Fortunato Abreu Gagno;S;AMBOS;N
+P0019;I0184;104.8;Rua Carlos Martins;S;AMBOS;N
+P0020;I0203;19.6;Rua José Celso Cláudio;S;AMBOS;N
+P0021;I0217;11.2;Rua Gelú Vervloet dos Santos;S;IDA;N
+P0022;I0209;17.1;Rua Carlos Martins;S;AMBOS;N
+P0023;I0228;31.8;Avenida Dante Michelini;S;IDA;N
+P0024;I0218;17.6;Rua Gelú Vervloet dos Santos;S;IDA;N
+P0025;I0254;43.3;Avenida Dante Michelini;S;IDA;N
+P0026;I0273;31.4;Avenida Dante Michelini;S;IDA;N
+P0027;I0263;44.0;Rua Carlos Martins;S;AMBOS;N
+P0028;I0202;175.8;Rua Fortunato Abreu Gagno;S;AMBOS;N
+P0029;I0304;34.5;Avenida Dante Michelini;S;IDA;N
+P0030;I0317;15.9;Avenida Dante Michelini;S;IDA;N
+
+[LINHAS]
+# codigo;nome   (código = número da linha + variante de sentido)
+508-1;508 Terminal Vila Velha → Terminal Laranjeiras
+508-2;508 Terminal Laranjeiras → Terminal Vila Velha
+0290-1;0290 Estrelinha → Jardim Camburi
+0103-1;0103 Mario Cypreste → Jardim Camburi
+0110-1;0110 Estrelinha → Jardim Camburi
+0111-1;0111 Bairro do Moscoso → Atlântica Ville
+0121-1;0121 Mario Cypreste → Jardim Camburi
+0160-1;0160 Jardim Camburi → Rodoviária
+0164-1;0164 Mario Cypreste → Jardim Camburi
+0241-1;0241 Mario Cypreste → Jardim Camburi
+0211-1;0211 Santo André → Jardim Camburi
+0310-1;0310 Santo André → Jardim Camburi
+800B-1;800B Terminal Laranjeiras → Terminal Laranjeiras
+800A-1;800A Terminal Laranjeiras → Terminal Laranjeiras
+839-1;839 Eurico Salles → Terminal Jardim América
+839-2;839 Terminal Jardim América → Eurico Salles
+851-1;851 Serra → Jardim Camburi
+851-2;851 Jardim Camburi → Serra
+521-1;521 Terminal Carapina → Hotel Canto do Sol
+521-2;521 Hotel Canto do Sol → Terminal Carapina
+544-1;544 Terminal Laranjeiras → Hotel Canto do Sol
+544-2;544 Hotel Canto do Sol → Terminal Laranjeiras
+542-1;542 Shopping Vitória → Terminal Jacaraipe
+542-2;542 Terminal Jacaraipe → Shopping Vitória
+528-1;528 Terminal Laranjeiras → Shopping Vitória
+510-1;510 Terminal Vila Velha → Terminal Carapina
+510-2;510 Terminal Carapina → Terminal Vila Velha
+0161-1;0161 Mario Cypreste → Jardim Camburi
+561-1;561 Terminal Jacaraipe → Terminal Campo Grande
+561-2;561 Terminal Campo Grande → Terminal Jacaraipe
+523-1;523 Terminal Jacaraipe → Terminal Jardim América
+523-2;523 Terminal Jardim América → Terminal Jacaraipe
+560-1;560 Terminal Laranjeiras → Terminal Itaparica
+560-2;560 Terminal Itaparica → Terminal Laranjeiras
+505-1;505 Terminal Itacibá → Terminal Laranjeiras
+505-2;505 Terminal Laranjeiras → Terminal Itacibá
+505U-1;505U Terminal Itacibá → Terminal Laranjeiras
+505P-1;505P Terminal Laranjeiras → Terminal Itacibá
+515-1;515 Terminal Campo Grande → Terminal Laranjeiras
+515-2;515 Terminal Laranjeiras → Terminal Campo Grande
+502-1;502 Terminal de Laranjeiras → Terminal de Itacibá
+502-2;502 Terminal de Itacibá → Terminal de Laranjeiras
+
+[TRECHOS_ONIBUS]
+# linha;parada_origem;parada_destino;distancia_m   (dirigido, na ordem de percurso)
+508-1;P0029;P0006;1247.0
+508-1;P0006;P0008;165.7
+508-1;P0008;P0011;125.0
+508-2;P0002;P0009;450.7
+508-2;P0009;P0004;255.6
+508-2;P0004;P0030;1266.1
+0290-1;P0022;P0014;332.3
+0290-1;P0014;P0012;202.3
+0290-1;P0012;P0001;255.1
+0290-1;P0006;P0008;165.7
+0290-1;P0008;P0011;125.0
+0290-1;P0011;P0017;274.0
+0290-1;P0017;P0020;251.8
+0290-1;P0023;P0017;445.5
+0290-1;P0017;P0009;345.3
+0290-1;P0009;P0004;255.6
+0290-1;P0007;P0014;332.0
+0290-1;P0014;P0019;274.4
+0290-1;P0019;P0027;206.9
+0103-1;P0029;P0025;491.2
+0103-1;P0023;P0020;193.7
+0103-1;P0020;P0017;251.8
+0103-1;P0017;P0009;345.3
+0103-1;P0009;P0004;255.6
+0103-1;P0007;P0014;332.0
+0103-1;P0014;P0019;274.4
+0103-1;P0019;P0027;206.9
+0110-1;P0022;P0014;332.3
+0110-1;P0014;P0012;202.3
+0110-1;P0012;P0001;255.1
+0110-1;P0006;P0008;165.7
+0110-1;P0008;P0011;125.0
+0110-1;P0011;P0017;274.0
+0110-1;P0017;P0020;251.8
+0110-1;P0023;P0017;445.5
+0110-1;P0017;P0009;345.3
+0110-1;P0009;P0004;255.6
+0110-1;P0007;P0014;332.0
+0110-1;P0014;P0019;274.4
+0110-1;P0019;P0027;206.9
+0111-1;P0029;P0025;491.2
+0111-1;P0023;P0026;393.4
+0111-1;P0026;P0030;322.3
+0121-1;P0022;P0014;332.3
+0121-1;P0014;P0012;202.3
+0121-1;P0012;P0001;255.1
+0121-1;P0006;P0008;165.7
+0121-1;P0008;P0011;125.0
+0121-1;P0011;P0017;274.0
+0121-1;P0017;P0020;251.8
+0121-1;P0023;P0017;445.5
+0121-1;P0017;P0009;345.3
+0121-1;P0009;P0004;255.6
+0121-1;P0007;P0014;332.0
+0121-1;P0014;P0019;274.4
+0121-1;P0019;P0027;206.9
+0160-1;P0023;P0017;445.5
+0160-1;P0017;P0009;345.3
+0160-1;P0009;P0004;255.6
+0160-1;P0004;P0010;300.2
+0160-1;P0010;P0016;254.5
+0160-1;P0016;P0018;129.7
+0160-1;P0018;P0028;333.1
+0160-1;P0028;P0030;248.6
+0160-1;P0029;P0028;220.9
+0160-1;P0028;P0018;333.1
+0160-1;P0018;P0013;154.2
+0160-1;P0013;P0010;230.0
+0160-1;P0010;P0006;308.7
+0160-1;P0006;P0008;165.7
+0160-1;P0008;P0011;125.0
+0160-1;P0011;P0017;274.0
+0160-1;P0017;P0020;251.8
+0164-1;P0022;P0014;332.3
+0164-1;P0014;P0012;202.3
+0164-1;P0012;P0001;255.1
+0164-1;P0006;P0008;165.7
+0164-1;P0008;P0011;125.0
+0164-1;P0011;P0017;274.0
+0164-1;P0017;P0020;251.8
+0164-1;P0023;P0017;445.5
+0164-1;P0017;P0009;345.3
+0164-1;P0009;P0004;255.6
+0164-1;P0007;P0014;332.0
+0164-1;P0014;P0019;274.4
+0164-1;P0019;P0027;206.9
+0241-1;P0029;P0028;220.9
+0241-1;P0028;P0018;333.1
+0241-1;P0018;P0013;154.2
+0241-1;P0013;P0010;230.0
+0241-1;P0010;P0006;308.7
+0241-1;P0006;P0008;165.7
+0241-1;P0008;P0011;125.0
+0241-1;P0011;P0017;274.0
+0241-1;P0017;P0020;251.8
+0241-1;P0023;P0017;445.5
+0241-1;P0017;P0009;345.3
+0241-1;P0009;P0004;255.6
+0241-1;P0004;P0010;300.2
+0241-1;P0010;P0016;254.5
+0241-1;P0016;P0018;129.7
+0241-1;P0018;P0028;333.1
+0241-1;P0028;P0030;248.6
+0211-1;P0022;P0014;332.3
+0211-1;P0014;P0012;202.3
+0211-1;P0012;P0001;255.1
+0211-1;P0006;P0008;165.7
+0211-1;P0008;P0011;125.0
+0211-1;P0011;P0017;274.0
+0211-1;P0017;P0020;251.8
+0211-1;P0023;P0017;445.5
+0211-1;P0017;P0009;345.3
+0211-1;P0009;P0004;255.6
+0211-1;P0007;P0014;332.0
+0211-1;P0014;P0019;274.4
+0211-1;P0019;P0027;206.9
+0310-1;P0029;P0025;491.2
+0310-1;P0023;P0020;193.7
+0310-1;P0020;P0017;251.8
+0310-1;P0017;P0009;345.3
+0310-1;P0009;P0004;255.6
+0310-1;P0003;P0010;428.2
+0310-1;P0010;P0016;254.5
+0310-1;P0016;P0018;129.7
+0310-1;P0018;P0028;333.1
+0310-1;P0028;P0030;248.6
+800B-1;P0006;P0008;165.7
+800B-1;P0008;P0011;125.0
+800A-1;P0002;P0009;450.7
+800A-1;P0009;P0004;255.6
+839-1;P0002;P0009;450.7
+839-1;P0009;P0004;255.6
+839-2;P0006;P0008;165.7
+839-2;P0008;P0011;125.0
+851-1;P0002;P0009;450.7
+851-1;P0009;P0004;255.6
+851-2;P0006;P0008;165.7
+851-2;P0008;P0011;125.0
+521-1;P0005;P0021;761.8
+521-2;P0030;P0024;418.3
+544-1;P0005;P0021;761.8
+544-2;P0030;P0024;418.3
+542-1;P0029;P0025;491.2
+542-2;P0002;P0020;733.3
+542-2;P0020;P0026;376.7
+542-2;P0026;P0030;322.3
+528-1;P0005;P0021;761.8
+510-1;P0029;P0028;220.9
+510-1;P0028;P0018;333.1
+510-1;P0018;P0013;154.2
+510-1;P0013;P0010;230.0
+510-1;P0010;P0006;308.7
+510-1;P0006;P0008;165.7
+510-1;P0008;P0011;125.0
+510-2;P0002;P0009;450.7
+510-2;P0009;P0004;255.6
+510-2;P0004;P0010;300.2
+510-2;P0010;P0016;254.5
+510-2;P0016;P0018;129.7
+510-2;P0018;P0028;333.1
+510-2;P0028;P0030;248.6
+0161-1;P0029;P0028;220.9
+0161-1;P0028;P0018;333.1
+0161-1;P0018;P0013;154.2
+0161-1;P0013;P0010;230.0
+0161-1;P0010;P0006;308.7
+0161-1;P0006;P0008;165.7
+0161-1;P0008;P0011;125.0
+0161-1;P0011;P0017;274.0
+0161-1;P0017;P0020;251.8
+0161-1;P0023;P0017;445.5
+0161-1;P0017;P0009;345.3
+0161-1;P0009;P0004;255.6
+0161-1;P0004;P0010;300.2
+0161-1;P0010;P0016;254.5
+0161-1;P0016;P0018;129.7
+0161-1;P0018;P0028;333.1
+0161-1;P0028;P0030;248.6
+561-1;P0002;P0017;481.5
+561-1;P0017;P0020;251.8
+561-1;P0020;P0026;376.7
+561-1;P0026;P0030;322.3
+561-2;P0029;P0025;491.2
+561-2;P0023;P0020;193.7
+561-2;P0020;P0017;251.8
+523-1;P0002;P0017;481.5
+523-1;P0017;P0020;251.8
+523-1;P0020;P0026;376.7
+523-1;P0026;P0030;322.3
+523-2;P0029;P0025;491.2
+523-2;P0023;P0020;193.7
+523-2;P0020;P0017;251.8
+560-1;P0002;P0009;450.7
+560-1;P0009;P0004;255.6
+560-1;P0004;P0010;300.2
+560-1;P0010;P0016;254.5
+560-1;P0016;P0018;129.7
+560-1;P0018;P0028;333.1
+560-1;P0028;P0030;248.6
+560-2;P0029;P0028;220.9
+560-2;P0028;P0018;333.1
+560-2;P0018;P0010;384.2
+560-2;P0010;P0006;308.7
+560-2;P0006;P0008;165.7
+560-2;P0008;P0011;125.0
+505-1;P0029;P0028;220.9
+505-1;P0028;P0018;333.1
+505-1;P0018;P0013;154.2
+505-1;P0013;P0010;230.0
+505-1;P0010;P0006;308.7
+505-1;P0006;P0008;165.7
+505-1;P0008;P0011;125.0
+505-2;P0002;P0009;450.7
+505-2;P0009;P0004;255.6
+505-2;P0004;P0010;300.2
+505-2;P0010;P0016;254.5
+505-2;P0016;P0018;129.7
+505-2;P0018;P0028;333.1
+505-2;P0028;P0030;248.6
+505U-1;P0029;P0028;220.9
+505U-1;P0028;P0018;333.1
+505U-1;P0018;P0013;154.2
+505U-1;P0013;P0010;230.0
+505U-1;P0010;P0006;308.7
+505U-1;P0006;P0008;165.7
+505U-1;P0008;P0011;125.0
+505P-1;P0002;P0009;450.7
+505P-1;P0009;P0004;255.6
+505P-1;P0004;P0010;300.2
+505P-1;P0010;P0016;254.5
+505P-1;P0016;P0018;129.7
+505P-1;P0018;P0028;333.1
+505P-1;P0028;P0030;248.6
+515-1;P0029;P0025;491.2
+515-2;P0002;P0017;481.5
+515-2;P0017;P0020;251.8
+515-2;P0020;P0026;376.7
+515-2;P0026;P0030;322.3
+502-1;P0009;P0004;255.6
+502-1;P0004;P0010;300.2
+502-1;P0010;P0015;237.1
+502-1;P0015;P0018;147.1
+502-1;P0018;P0028;333.1
+502-1;P0028;P0030;248.6
+502-2;P0029;P0028;220.9
+502-2;P0028;P0018;333.1
+502-2;P0018;P0013;154.2
+502-2;P0013;P0010;230.0
+502-2;P0010;P0006;308.7
+502-2;P0006;P0008;165.7
+502-2;P0008;P0011;125.0
+502-2;P0011;P0002;388.5
