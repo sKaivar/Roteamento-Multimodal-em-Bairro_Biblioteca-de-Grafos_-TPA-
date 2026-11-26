@@ -279,6 +279,12 @@ public class ServicoRotas implements IServicoRotas {
     private IPassoGuia criarPasso(MeioTransporte meio, String rotulo, float minutos, String destinoNome) {
         String descricao;
 
+        // Se o tempo for zero e tiver nome de destino, trata como desembarque
+        if (minutos <= 0.0001f && meio == MeioTransporte.CAMINHADA && destinoNome != null) {
+            descricao = String.format("Desembarque no ponto %s", destinoNome);
+            return new PassoGuia(meio, descricao, 0.0f);
+        }
+
         switch (meio) {
             case CAMINHADA:
                 if (rotulo != null && !rotulo.trim().isEmpty()) {
