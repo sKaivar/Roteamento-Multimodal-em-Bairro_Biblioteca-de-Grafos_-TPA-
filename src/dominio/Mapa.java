@@ -9,7 +9,6 @@ public abstract class Mapa implements IMapa {
         this.descricao = descricao;
     }
 
-    @Override
     public String getNome() {
         return nome;
     }
