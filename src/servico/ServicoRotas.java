@@ -10,19 +10,32 @@ import estruturas.ListaEncadeada;
 import grafo.IAresta;
 import grafo.ICaminho;
 import grafo.IGrafo;
+import grafo.Vertice;
 
-// Servico que calcula e compara rotas entre locais do bairro
+/**
+ * Serviço principal de cálculo e comparação de rotas entre dois locais do bairro,
+ * utilizando os grafos de pedestres, ciclistas e o grafo composto multimodal.
+ */
 public class ServicoRotas implements IServicoRotas {
 
     private IGrafo<ILocal> grafoPedestre;
     private IGrafo<ILocal> grafoCiclista;
     private IGrafo<ILocal> grafoComposto;
+    private ServicoMapa servicoMapa;
 
-    // Construtor vazio
+    /**
+     * Cria o serviço de rotas sem grafos pré-configurados.
+     */
     public ServicoRotas() {
     }
 
-    // Construtor recebendo os grafos
+    /**
+     * Cria o serviço de rotas com os grafos das três modalidades.
+     *
+     * @param grafoPedestre grafo não dirigido de deslocamento a pé
+     * @param grafoCiclista grafo dirigido de deslocamento por bicicleta
+     * @param grafoComposto grafo composto em camadas (a pé + ônibus)
+     */
     public ServicoRotas(
             IGrafo<ILocal> grafoPedestre,
             IGrafo<ILocal> grafoCiclista,
@@ -33,22 +46,76 @@ public class ServicoRotas implements IServicoRotas {
         this.grafoComposto = grafoComposto;
     }
 
-    // Atualiza grafo pedestre
+    /**
+     * Cria o serviço de rotas integrado ao {@link ServicoMapa}, permitindo
+     * reconstruir automaticamente o grafo composto quando houver alterações no mapa.
+     *
+     * @param grafoPedestre grafo não dirigido de deslocamento a pé
+     * @param grafoCiclista grafo dirigido de deslocamento por bicicleta
+     * @param grafoComposto grafo composto em camadas (a pé + ônibus)
+     * @param servicoMapa serviço de manutenção do mapa para sincronização do composto
+     */
+    public ServicoRotas(
+            IGrafo<ILocal> grafoPedestre,
+            IGrafo<ILocal> grafoCiclista,
+            IGrafo<ILocal> grafoComposto,
+            ServicoMapa servicoMapa
+    ) {
+        this.grafoPedestre = grafoPedestre;
+        this.grafoCiclista = grafoCiclista;
+        this.grafoComposto = grafoComposto;
+        this.servicoMapa = servicoMapa;
+    }
+
+    /**
+     * Atualiza a referência do grafo de pedestres.
+     *
+     * @param grafoPedestre novo grafo de pedestres
+     */
     public void setGrafoPedestre(IGrafo<ILocal> grafoPedestre) {
         this.grafoPedestre = grafoPedestre;
     }
 
-    // Atualiza grafo ciclista
+    /**
+     * Atualiza a referência do grafo de ciclistas.
+     *
+     * @param grafoCiclista novo grafo de ciclistas
+     */
     public void setGrafoCiclista(IGrafo<ILocal> grafoCiclista) {
         this.grafoCiclista = grafoCiclista;
     }
 
-    // Atualiza grafo composto
+    /**
+     * Atualiza a referência do grafo composto multimodal.
+     *
+     * @param grafoComposto novo grafo composto
+     */
     public void setGrafoComposto(IGrafo<ILocal> grafoComposto) {
         this.grafoComposto = grafoComposto;
     }
 
-    // Calcula rota para uma modalidade especifica
+    /**
+     * Associa o serviço de manutenção do mapa para reconstruir o grafo composto
+     * sob demanda antes de consultas da modalidade {@link Modalidade#A_PE_ONIBUS}.
+     *
+     * @param servicoMapa serviço de mapa associado
+     */
+    public void setServicoMapa(ServicoMapa servicoMapa) {
+        this.servicoMapa = servicoMapa;
+    }
+
+    /**
+     * Calcula a melhor rota para uma modalidade específica entre dois locais,
+     * verificando alcançabilidade por busca em largura, executando Dijkstra e
+     * avaliando a restrição de tempo.
+     *
+     * @param modalidade modalidade desejada
+     * @param p local de origem
+     * @param q local de destino
+     * @param restricao restrição de tempo aplicada (pode ser nula para sem limite)
+     * @return resultado consolidado da rota com guia passo a passo e veredito
+     * @throws IllegalArgumentException se modalidade, origem ou destino forem nulos
+     */
     @Override
     public IResultadoRota calcular(
             Modalidade modalidade,
@@ -64,7 +131,12 @@ public class ServicoRotas implements IServicoRotas {
             throw new IllegalArgumentException("Origem e destino devem ser informados.");
         }
 
-        // Pega limite de tempo ou infinito se nao tiver
+        // Reconstrói o grafo composto sob demanda caso o mapa tenha sido alterado
+        if (modalidade == Modalidade.A_PE_ONIBUS) {
+            sincronizarComposto();
+        }
+
+        // Pega limite de tempo ou infinito se não tiver
         float limite = (restricao != null) ? restricao.limitePara(modalidade) : Float.POSITIVE_INFINITY;
 
         // Pega o grafo certo da modalidade
@@ -74,31 +146,34 @@ public class ServicoRotas implements IServicoRotas {
             return ResultadoRota.semRota(modalidade, limite);
         }
 
-        // Checa se os dois locais existem no grafo
-        if (grafo.obterVertice(p) == null || grafo.obterVertice(q) == null) {
+        // Localiza os vértices reais no grafo (tolerante caso equals do domínio não esteja por id)
+        ILocal origemGrafo = localizarNoGrafo(grafo, p);
+        ILocal destinoGrafo = localizarNoGrafo(grafo, q);
+
+        if (origemGrafo == null || destinoGrafo == null) {
             return ResultadoRota.semRota(modalidade, limite);
         }
 
-        // Se origem e destino sao iguais, ja chegou
-        if (p.equals(q)) {
+        // Se origem e destino são iguais, já chegou
+        if (origemGrafo == destinoGrafo || mesmoId(origemGrafo, destinoGrafo)) {
             ILista<IPassoGuia> guiaMesmoPonto = new ListaEncadeada<>();
             guiaMesmoPonto.adicionar(new PassoGuia(
                     MeioTransporte.CAMINHADA,
-                    "Voce ja esta no local (" + p.getNome() + ").",
+                    "Voce ja esta no local (" + origemGrafo.getNome() + ").",
                     0.0f
             ));
             return new ResultadoRota(modalidade, true, limite, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, guiaMesmoPonto);
         }
 
-        // Checa primeiro por busca em largura se da pra alcancar o destino
-        boolean alcancavel = grafo.existeCaminho(p, q);
+        // Checa primeiro por busca em largura se dá para alcançar o destino
+        boolean alcancavel = grafo.existeCaminho(origemGrafo, destinoGrafo);
 
         if (!alcancavel) {
             return ResultadoRota.semRota(modalidade, limite);
         }
 
-        // Roda o dijkstra para pegar o caminho de menor tempo
-        ICaminho<ILocal> caminho = grafo.menorCaminho(p, q);
+        // Roda o Dijkstra para pegar o caminho de menor tempo
+        ICaminho<ILocal> caminho = grafo.menorCaminho(origemGrafo, destinoGrafo);
 
         if (caminho == null || !caminho.existe()) {
             return ResultadoRota.semRota(modalidade, limite);
@@ -108,7 +183,16 @@ public class ServicoRotas implements IServicoRotas {
         return processarCaminho(modalidade, caminho, limite);
     }
 
-    // Executa as tres modalidades e devolve as viaveis ordenadas
+    /**
+     * Executa o cálculo para as três modalidades e devolve apenas as opções viáveis
+     * dentro da restrição de tempo, ordenadas do menor para o maior tempo total.
+     *
+     * @param p local de origem
+     * @param q local de destino
+     * @param restricao restrição de tempo aplicada (pode ser nula)
+     * @return lista ordenada das modalidades viáveis
+     * @throws IllegalArgumentException se origem ou destino forem nulos
+     */
     @Override
     public ILista<IResultadoRota> compararModalidades(
             ILocal p,
@@ -120,12 +204,12 @@ public class ServicoRotas implements IServicoRotas {
             throw new IllegalArgumentException("Origem e destino nao podem ser nulos.");
         }
 
-        // Calcula cada uma das tres
+        // Calcula cada uma das três
         IResultadoRota rPedestre = calcular(Modalidade.A_PE, p, q, restricao);
         IResultadoRota rComposto = calcular(Modalidade.A_PE_ONIBUS, p, q, restricao);
         IResultadoRota rCiclista = calcular(Modalidade.BICICLETA, p, q, restricao);
 
-        // Guarda as viaveis ordenadas do menor para o maior tempo
+        // Guarda as viáveis ordenadas do menor para o maior tempo
         ILista<IResultadoRota> viaveisOrdenadas = new ListaEncadeada<>();
 
         inserirOrdenado(viaveisOrdenadas, rPedestre);
@@ -133,6 +217,37 @@ public class ServicoRotas implements IServicoRotas {
         inserirOrdenado(viaveisOrdenadas, rCiclista);
 
         return viaveisOrdenadas;
+    }
+
+    // Atualiza o grafo composto se o ServicoMapa indicar alterações pendentes
+    private void sincronizarComposto() {
+        if (servicoMapa != null && servicoMapa.isGrafoCompostoDesatualizado()) {
+            servicoMapa.reconstruirCompostoSeNecessario();
+            if (!servicoMapa.isGrafoCompostoDesatualizado() && servicoMapa.getGrafoComposto() != null) {
+                this.grafoComposto = servicoMapa.getGrafoComposto();
+            }
+        }
+    }
+
+    // Localiza a instância exata de ILocal armazenada no grafo
+    private ILocal localizarNoGrafo(IGrafo<ILocal> grafo, ILocal alvo) {
+        if (grafo.obterVertice(alvo) != null) {
+            return alvo;
+        }
+        String idAlvo = alvo.getId();
+        if (idAlvo == null) {
+            return null;
+        }
+        for (Vertice<ILocal> v : grafo.getVertices()) {
+            if (idAlvo.equalsIgnoreCase(v.getValor().getId())) {
+                return v.getValor();
+            }
+        }
+        return null;
+    }
+
+    private boolean mesmoId(ILocal a, ILocal b) {
+        return a.getId() != null && b.getId() != null && a.getId().equalsIgnoreCase(b.getId());
     }
 
     // Escolhe o grafo de acordo com a modalidade
@@ -164,7 +279,7 @@ public class ServicoRotas implements IServicoRotas {
         ILista<IAresta<ILocal>> arestas = caminho.getArestas();
         ILista<IPassoGuia> guia = new ListaEncadeada<>();
 
-        // Variaveis para acumular passos seguidos na mesma rua
+        // Variáveis para acumular passos seguidos na mesma rua
         MeioTransporte meioAtual = null;
         String rotuloAtual = null;
         float minutosAcumulados = 0.0f;
@@ -211,7 +326,7 @@ public class ServicoRotas implements IServicoRotas {
             }
         }
 
-        // Descarrega o ultimo passo
+        // Descarrega o último passo
         if (meioAtual != null) {
             guia.adicionar(criarPasso(meioAtual, rotuloAtual, minutosAcumulados, ultimoDestinoNome));
         }
@@ -241,8 +356,8 @@ public class ServicoRotas implements IServicoRotas {
             return MeioTransporte.BICICLETA;
         }
 
-        // No grafo composto, checa pelos ids dos vertices:
-        // id com '@' e parada de linha (camada B - onibus). Sem '@' e ponto fisico (camada A).
+        // No grafo composto, checa pelos ids dos vértices:
+        // id com '@' é parada de linha (camada B - ônibus). Sem '@' é ponto físico (camada A).
         String idOrigem = aresta.getOrigem().getValor().getId();
         String idDestino = aresta.getDestino().getValor().getId();
 
@@ -252,11 +367,11 @@ public class ServicoRotas implements IServicoRotas {
         if (!origemOnibus && !destinoOnibus) {
             return MeioTransporte.CAMINHADA;
         } else if (!origemOnibus && destinoOnibus) {
-            return MeioTransporte.ESPERA; // Transicao A -> B (embarque)
+            return MeioTransporte.ESPERA; // Transição A -> B (embarque)
         } else if (origemOnibus && destinoOnibus) {
             return MeioTransporte.ONIBUS; // Trecho na linha B -> B
         } else {
-            return MeioTransporte.CAMINHADA; // Transicao B -> A (desembarque, custo 0)
+            return MeioTransporte.CAMINHADA; // Transição B -> A (desembarque, custo 0)
         }
     }
 
