@@ -6,17 +6,27 @@ import dominio.IResultadoRota;
 import dominio.Modalidade;
 import dominio.SentidoBicicleta;
 import estruturas.ILista;
+import estruturas.ListaEncadeada;
 import grafo.IGrafo;
 import grafo.Vertice;
+import persistencia.RepositorioMapaArquivo;
+import servico.IConstrutorGrafos;
+import servico.IModeloCusto;
 import servico.IServicoMapa;
 import servico.IServicoRotas;
 import servico.RestricaoTempo;
 import servico.ServicoMapa;
 import servico.ServicoRotas;
 
+import java.text.Normalizer;
+import java.util.Locale;
 import java.util.Scanner;
 
-// Menu interativo no console para o usuario
+/**
+ * Interface de linha de comando (camada de apresentação) que permite ao usuário
+ * consultar informações dos grafos, executar caminhamento em largura, calcular e
+ * comparar rotas multimodais e acrescentar novos locais e trechos após a carga do arquivo.
+ */
 public class MenuConsole {
 
     private final String caminhoArquivo;
@@ -31,15 +41,21 @@ public class MenuConsole {
     private IServicoRotas servicoRotas;
     private IServicoMapa servicoMapa;
 
-    // Construtor
+    /**
+     * Cria o menu console associado ao arquivo de dados informado.
+     *
+     * @param caminhoArquivo caminho do arquivo de entrada do bairro (ex.: "dados/bairro.txt")
+     */
     public MenuConsole(String caminhoArquivo) {
         this.caminhoArquivo = caminhoArquivo;
         this.entrada = new Scanner(System.in);
-        this.servicoRotas = new ServicoRotas();
         this.servicoMapa = new ServicoMapa();
+        this.servicoRotas = new ServicoRotas();
     }
 
-    // Inicia o sistema
+    /**
+     * Carrega o mapa a partir do arquivo configurado e inicia o laço interativo do menu.
+     */
     public void iniciar() {
         System.out.println("========================================");
         System.out.println("       SISTEMA DE ROTAS - JARDIM CAMBURI");
@@ -50,22 +66,41 @@ public class MenuConsole {
         executarMenu();
     }
 
-    // Le o arquivo de dados do mapa
-    private void carregarMapa() {
-        System.out.println("\nCarregando dados do mapa...");
-        System.out.println("Arquivo de entrada: " + caminhoArquivo);
-
-        try {
-            this.mapa = new persistencia.RepositorioMapaArquivo().carregar(caminhoArquivo);
-            System.out.println("Mapa lido com sucesso: " + mapa.getLocais().tamanho() + " locais.");
-        } catch (Exception e) {
-            System.out.println("Aviso: " + e.getMessage());
-        }
-    }
-
-    // Permite configurar os grafos de fora
+    /**
+     * Configura os grafos e serviços externamente (sem construtor de grafos nem modelo de custo).
+     *
+     * @param mapa mapa carregado
+     * @param pedestre grafo de pedestres
+     * @param ciclista grafo de ciclistas
+     * @param onibus grafo da rede de ônibus
+     * @param composto grafo composto multimodal
+     */
     public void configurarServicos(
             IMapa mapa,
+            IGrafo<ILocal> pedestre,
+            IGrafo<ILocal> ciclista,
+            IGrafo<ILocal> onibus,
+            IGrafo<ILocal> composto
+    ) {
+        configurarServicos(mapa, null, null, pedestre, ciclista, onibus, composto);
+    }
+
+    /**
+     * Configura o mapa, os grafos e os serviços de custo/construção usados para
+     * cálculos de rota e reconstrução do grafo composto após edições.
+     *
+     * @param mapa mapa carregado
+     * @param construtorGrafos construtor de grafos para reconstrução do composto
+     * @param modeloCusto modelo de conversão de distância em tempo
+     * @param pedestre grafo de pedestres
+     * @param ciclista grafo de ciclistas
+     * @param onibus grafo da rede de ônibus
+     * @param composto grafo composto multimodal
+     */
+    public void configurarServicos(
+            IMapa mapa,
+            IConstrutorGrafos construtorGrafos,
+            IModeloCusto modeloCusto,
             IGrafo<ILocal> pedestre,
             IGrafo<ILocal> ciclista,
             IGrafo<ILocal> onibus,
@@ -77,11 +112,36 @@ public class MenuConsole {
         this.grafoOnibus = onibus;
         this.grafoComposto = composto;
 
-        this.servicoRotas = new ServicoRotas(pedestre, ciclista, composto);
-        this.servicoMapa = new ServicoMapa(mapa, null, null, pedestre, ciclista, onibus, composto);
+        ServicoMapa mapaService = new ServicoMapa(
+                mapa,
+                construtorGrafos,
+                modeloCusto,
+                pedestre,
+                ciclista,
+                onibus,
+                composto
+        );
+        this.servicoMapa = mapaService;
+        this.servicoRotas = new ServicoRotas(pedestre, ciclista, composto, mapaService);
     }
 
-    // Laco principal que le as escolhas
+    // Lê o arquivo de dados do mapa
+    private void carregarMapa() {
+        System.out.println("\nCarregando dados do mapa...");
+        System.out.println("Arquivo de entrada: " + caminhoArquivo);
+
+        try {
+            this.mapa = new RepositorioMapaArquivo().carregar(caminhoArquivo);
+            if (servicoMapa instanceof ServicoMapa) {
+                ((ServicoMapa) servicoMapa).setMapa(this.mapa);
+            }
+            System.out.println("Mapa lido com sucesso: " + mapa.getLocais().tamanho() + " locais.");
+        } catch (Exception e) {
+            System.out.println("Aviso: " + e.getMessage());
+        }
+    }
+
+    // Laço principal que lê as escolhas do usuário
     private void executarMenu() {
         int opcao;
 
@@ -100,7 +160,7 @@ public class MenuConsole {
         } while (opcao != 0);
     }
 
-    // Mostra as opcoes disponiveis
+    // Mostra as opções disponíveis
     private void mostrarMenu() {
         System.out.println("\n========================================");
         System.out.println("              MENU PRINCIPAL");
@@ -117,7 +177,7 @@ public class MenuConsole {
         System.out.println("0. Sair");
     }
 
-    // Trata cada opcao escolhida
+    // Trata cada opção escolhida
     private void processarOpcao(int opcao) {
         switch (opcao) {
             case 1:
@@ -149,10 +209,28 @@ public class MenuConsole {
         }
     }
 
-    // Opcao 1: mostra quantidade de vertices e arestas
+    // Sincroniza o grafo composto quando houver acréscimos recentes no mapa
+    private void sincronizarGrafoComposto() {
+        if (servicoMapa instanceof ServicoMapa) {
+            ServicoMapa mapaService = (ServicoMapa) servicoMapa;
+            if (mapaService.isGrafoCompostoDesatualizado()) {
+                boolean reconstruiu = mapaService.reconstruirCompostoSeNecessario();
+                if (reconstruiu && mapaService.getGrafoComposto() != null) {
+                    this.grafoComposto = mapaService.getGrafoComposto();
+                    if (servicoRotas instanceof ServicoRotas) {
+                        ((ServicoRotas) servicoRotas).setGrafoComposto(this.grafoComposto);
+                    }
+                }
+            }
+        }
+    }
+
+    // Opção 1: mostra quantidade de vértices e arestas
     private void exibirInformacoesMapa() {
+        sincronizarGrafoComposto();
+
         System.out.println("\n--- Informações do Mapa ---");
-        if (grafoPedestre == null && grafoCiclista == null && grafoComposto == null) {
+        if (grafoPedestre == null && grafoCiclista == null && grafoOnibus == null && grafoComposto == null) {
             System.out.println("Nenhum grafo carregado no momento.");
             return;
         }
@@ -173,10 +251,15 @@ public class MenuConsole {
             System.out.printf("Grafo Composto (Multimodal): %d vértices, %d arestas\n",
                     grafoComposto.quantidadeVertices(), grafoComposto.quantidadeArestas());
         }
+        if (servicoMapa instanceof ServicoMapa && ((ServicoMapa) servicoMapa).isGrafoCompostoDesatualizado()) {
+            System.out.println("Aviso: o grafo composto aguarda construtor de grafos para ser reconstruído.");
+        }
     }
 
-    // Opcao 2: roda busca em largura a partir de um ponto
+    // Opção 2: roda busca em largura a partir de um ponto
     private void executarBuscaLargura() {
+        sincronizarGrafoComposto();
+
         System.out.println("\n--- Busca em Largura (BFS) ---");
         IGrafo<ILocal> grafoEscolhido = selecionarGrafo();
 
@@ -187,7 +270,6 @@ public class MenuConsole {
 
         ILocal origem = obterLocalPorEntrada("Digite o ID ou nome do local de partida: ", grafoEscolhido);
         if (origem == null) {
-            System.out.println("Local não encontrado.");
             return;
         }
 
@@ -196,8 +278,10 @@ public class MenuConsole {
         System.out.println(resultado);
     }
 
-    // Opcao 3: calcula trajeto de uma modalidade especifica
+    // Opção 3: calcula trajeto de uma modalidade específica
     private void calcularRota() {
+        sincronizarGrafoComposto();
+
         System.out.println("\n--- Calcular Rota ---");
 
         System.out.println("Escolha a modalidade:");
@@ -237,6 +321,7 @@ public class MenuConsole {
 
         System.out.println("\nCalculando melhor rota...");
         IResultadoRota resultado = servicoRotas.calcular(modalidade, p, q, restricao);
+        sincronizarGrafoComposto();
 
         System.out.println("\n========================================");
         System.out.println("             RESULTADO");
@@ -244,8 +329,10 @@ public class MenuConsole {
         System.out.println(resultado.toString());
     }
 
-    // Opcao 4: compara a pe, bike e onibus e ordena
+    // Opção 4: compara a pé, bicicleta e ônibus e ordena pelo menor tempo
     private void compararModalidades() {
+        sincronizarGrafoComposto();
+
         System.out.println("\n--- Comparação de Modalidades ---");
 
         if (grafoPedestre == null || grafoCiclista == null || grafoComposto == null) {
@@ -264,6 +351,7 @@ public class MenuConsole {
 
         System.out.println("\nProcessando alternativas de deslocamento...");
         ILista<IResultadoRota> alternativas = servicoRotas.compararModalidades(p, q, restricao);
+        sincronizarGrafoComposto();
 
         System.out.println("\n========================================");
         System.out.println("     MODALIDADES VIÁVEIS (ORDENADAS)");
@@ -281,27 +369,28 @@ public class MenuConsole {
         }
     }
 
-    // Opcao 5: cadastra um local novo
+    // Opção 5: cadastra um local novo
     private void adicionarLocal() {
         System.out.println("\n--- Adicionar Novo Local ---");
         System.out.print("Nome do local: ");
         String nome = entrada.nextLine().trim();
 
-        System.out.print("Latitude (ex: -20.264): ");
-        double lat = lerDouble();
-
-        System.out.print("Longitude (ex: -40.287): ");
-        double lon = lerDouble();
+        double lat = lerDouble("Latitude (ex: -20.264): ");
+        double lon = lerDouble("Longitude (ex: -40.287): ");
 
         System.out.print("Conectar à interseção viária mais próxima a pé? (S/N): ");
         String resp = entrada.nextLine().trim();
         boolean ligar = resp.equalsIgnoreCase("S");
 
-        ILocal novo = servicoMapa.adicionarLocal(nome, lat, lon, ligar);
-        System.out.printf("\nLocal cadastrado com sucesso! ID gerado: %s (%s)\n", novo.getId(), novo.getNome());
+        try {
+            ILocal novo = servicoMapa.adicionarLocal(nome, lat, lon, ligar);
+            System.out.printf("\nLocal cadastrado com sucesso! ID gerado: %s (%s)\n", novo.getId(), novo.getNome());
+        } catch (Exception e) {
+            System.out.println("Erro ao cadastrar local: " + e.getMessage());
+        }
     }
 
-    // Opcao 6: cadastra um trecho de rua
+    // Opção 6: cadastra um trecho de rua
     private void adicionarTrecho() {
         System.out.println("\n--- Adicionar Trecho Viário ---");
         System.out.print("ID do local de origem: ");
@@ -310,8 +399,7 @@ public class MenuConsole {
         System.out.print("ID do local de destino: ");
         String idDestino = entrada.nextLine().trim();
 
-        System.out.print("Distância em metros: ");
-        double distancia = lerDouble();
+        double distancia = lerDoubleNaoNegativo("Distância em metros: ");
 
         System.out.print("Nome da via (rua/avenida): ");
         String nomeVia = entrada.nextLine().trim();
@@ -341,7 +429,7 @@ public class MenuConsole {
         }
     }
 
-    // Opcao 7: cadastra trecho de linha de onibus
+    // Opção 7: cadastra trecho de linha de ônibus
     private void adicionarTrechoOnibus() {
         System.out.println("\n--- Adicionar Trecho de Ônibus ---");
         System.out.print("Código da linha (ex: 0160-1): ");
@@ -353,8 +441,7 @@ public class MenuConsole {
         System.out.print("ID da parada de destino (ex: P0002): ");
         String idDestino = entrada.nextLine().trim();
 
-        System.out.print("Distância entre as paradas em metros: ");
-        double distancia = lerDouble();
+        double distancia = lerDoubleNaoNegativo("Distância entre as paradas em metros: ");
 
         try {
             servicoMapa.adicionarTrechoOnibus(codigoLinha, idOrigem, idDestino, distancia);
@@ -385,7 +472,7 @@ public class MenuConsole {
         }
     }
 
-    // Pega o grafo correspondente a modalidade
+    // Pega o grafo correspondente à modalidade
     private IGrafo<ILocal> selecionarGrafoPorModalidade(Modalidade modalidade) {
         switch (modalidade) {
             case A_PE: return grafoPedestre;
@@ -395,7 +482,7 @@ public class MenuConsole {
         }
     }
 
-    // Pega o local digitado pelo usuario (busca por id ou por nome)
+    // Busca local por ID exato (sem diferenciar maiúsculas) ou por trecho do nome com desambiguação
     private ILocal obterLocalPorEntrada(String prompt, IGrafo<ILocal> grafo) {
         System.out.print(prompt);
         String texto = entrada.nextLine().trim();
@@ -405,35 +492,154 @@ public class MenuConsole {
             return null;
         }
 
-        // Tenta buscar no mapa
-        if (mapa != null) {
-            ILocal porId = mapa.buscarPorId(texto);
-            if (porId != null) return porId;
-
-            ILista<ILocal> porNome = mapa.buscarPorNome(texto);
-            if (porNome != null && !porNome.estaVazia()) {
-                return porNome.iterator().next();
-            }
+        // 1. Tenta busca exata por ID primeiro
+        ILocal porId = buscarPorIdExato(texto, grafo);
+        if (porId != null) {
+            System.out.println("Selecionado: " + porId.getNome() + " [" + porId.getId() + "]");
+            return porId;
         }
 
-        // Tenta achar nos vertices do grafo
+        // 2. Coleta todos os locais cujo nome contenha o termo buscado
+        ILista<ILocal> candidatos = buscarCandidatosPorNome(texto, grafo);
+
+        if (candidatos.estaVazia()) {
+            System.out.println("Local \"" + texto + "\" não foi localizado neste grafo.");
+            return null;
+        }
+
+        if (candidatos.tamanho() == 1) {
+            ILocal unico = candidatos.iterator().next();
+            System.out.println("Selecionado: " + unico.getNome() + " [" + unico.getId() + "]");
+            return unico;
+        }
+
+        // 3. Havendo mais de um candidato, lista para o usuário escolher
+        return escolherEntreCandidatos(candidatos);
+    }
+
+    // Busca exata por ID no grafo (se informado) e no mapa
+    private ILocal buscarPorIdExato(String id, IGrafo<ILocal> grafo) {
         if (grafo != null) {
             for (Vertice<ILocal> v : grafo.getVertices()) {
                 ILocal loc = v.getValor();
-                if (loc.getId().equalsIgnoreCase(texto) || loc.getNome().toLowerCase().contains(texto.toLowerCase())) {
+                if (loc.getId() != null && loc.getId().equalsIgnoreCase(id)) {
+                    return loc;
+                }
+            }
+            return null;
+        }
+
+        if (mapa != null) {
+            for (ILocal loc : mapa.getLocais()) {
+                if (loc.getId() != null && loc.getId().equalsIgnoreCase(id)) {
                     return loc;
                 }
             }
         }
-
-        System.out.println("Local \"" + texto + "\" não foi localizado no mapa.");
         return null;
     }
 
-    // Le o limite de tempo digitado
+    // Coleta candidatos por nome usando a lista própria do projeto
+    private ILista<ILocal> buscarCandidatosPorNome(String termo, IGrafo<ILocal> grafo) {
+        ILista<ILocal> candidatos = new ListaEncadeada<>();
+
+        if (mapa != null) {
+            ILista<ILocal> encontradosNoMapa = mapa.buscarPorNome(termo);
+            for (ILocal loc : encontradosNoMapa) {
+                if (grafo == null || existeNoGrafo(grafo, loc)) {
+                    candidatos.adicionar(loc);
+                }
+            }
+        }
+
+        // Se o mapa não estiver carregado ou o grafo tiver vértices próprios (ex.: grafo de ônibus)
+        if (candidatos.estaVazia() && grafo != null) {
+            String termoNorm = normalizarTexto(termo);
+            for (Vertice<ILocal> v : grafo.getVertices()) {
+                ILocal loc = v.getValor();
+                if (loc.getNome() != null && normalizarTexto(loc.getNome()).contains(termoNorm)) {
+                    candidatos.adicionar(loc);
+                }
+            }
+        }
+
+        return candidatos;
+    }
+
+    // Exibe os locais encontrados numerados e retorna o escolhido
+    private ILocal escolherEntreCandidatos(ILista<ILocal> candidatos) {
+        System.out.println("\nForam encontrados " + candidatos.tamanho() + " locais correspondentes:");
+
+        int indice = 1;
+        for (ILocal loc : candidatos) {
+            System.out.printf("  %d - %s [%s] (%s)\n", indice++, loc.getNome(), loc.getId(), loc.getTipo());
+        }
+        System.out.println("  0 - Cancelar");
+
+        while (true) {
+            System.out.print("Escolha o número do local desejado: ");
+            String linha = entrada.nextLine().trim();
+
+            try {
+                int escolha = Integer.parseInt(linha);
+                if (escolha == 0) {
+                    System.out.println("Seleção cancelada.");
+                    return null;
+                }
+                if (escolha >= 1 && escolha <= candidatos.tamanho()) {
+                    ILocal selecionado = obterPorPosicao(candidatos, escolha - 1);
+                    if (selecionado != null) {
+                        System.out.println("Selecionado: " + selecionado.getNome() + " [" + selecionado.getId() + "]");
+                    }
+                    return selecionado;
+                }
+            } catch (NumberFormatException ignored) {
+                // Repete a solicitação ao usuário
+            }
+
+            System.out.println("Opção inválida. Digite um número entre 0 e " + candidatos.tamanho() + ".");
+        }
+    }
+
+    // Percorre a lista própria até a posição desejada (sem usar coleções do Java)
+    private ILocal obterPorPosicao(ILista<ILocal> lista, int posicaoAlvo) {
+        int atual = 0;
+        for (ILocal item : lista) {
+            if (atual == posicaoAlvo) {
+                return item;
+            }
+            atual++;
+        }
+        return null;
+    }
+
+    // Verifica se um local está presente no grafo informado
+    private boolean existeNoGrafo(IGrafo<ILocal> grafo, ILocal alvo) {
+        if (grafo.obterVertice(alvo) != null) {
+            return true;
+        }
+        String idAlvo = alvo.getId();
+        if (idAlvo == null) {
+            return false;
+        }
+        for (Vertice<ILocal> v : grafo.getVertices()) {
+            if (idAlvo.equalsIgnoreCase(v.getValor().getId())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Remove acentos e coloca em minúsculas para comparação textual simples
+    private String normalizarTexto(String texto) {
+        String semAcento = Normalizer.normalize(texto, Normalizer.Form.NFD).replaceAll("\\p{M}", "");
+        return semAcento.toLowerCase(Locale.ROOT).trim();
+    }
+
+    // Lê o limite de tempo digitado
     private float obterLimiteTempo() {
         System.out.print("Informe o limite de tempo em minutos (ou Enter para sem limite): ");
-        String texto = entrada.nextLine().trim();
+        String texto = entrada.nextLine().trim().replace(',', '.');
 
         if (texto.isEmpty()) {
             return Float.POSITIVE_INFINITY;
@@ -448,12 +654,31 @@ public class MenuConsole {
         }
     }
 
-    // Le numero decimal
-    private double lerDouble() {
-        try {
-            return Double.parseDouble(entrada.nextLine().trim());
-        } catch (Exception e) {
-            return 0.0;
+    // Lê número decimal válido (aceita ponto ou vírgula)
+    private double lerDouble(String prompt) {
+        while (true) {
+            System.out.print(prompt);
+            String texto = entrada.nextLine().trim().replace(',', '.');
+            try {
+                double valor = Double.parseDouble(texto);
+                if (!Double.isNaN(valor) && !Double.isInfinite(valor)) {
+                    return valor;
+                }
+            } catch (NumberFormatException ignored) {
+                // Repete a leitura
+            }
+            System.out.println("Valor inválido. Digite um número válido.");
+        }
+    }
+
+    // Lê número decimal não negativo (para distâncias)
+    private double lerDoubleNaoNegativo(String prompt) {
+        while (true) {
+            double valor = lerDouble(prompt);
+            if (valor >= 0) {
+                return valor;
+            }
+            System.out.println("O valor não pode ser negativo.");
         }
     }
 }

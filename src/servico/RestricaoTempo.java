@@ -2,7 +2,10 @@ package servico;
 
 import dominio.Modalidade;
 
-// Guarda o tempo limite das rotas
+/**
+ * Armazena os limites máximos de tempo permitidos para uma consulta de rota,
+ * permitindo um limite global e eventuais sobrescritas por modalidade.
+ */
 public class RestricaoTempo implements IRestricaoTempo {
 
     private final float limiteGlobal;
@@ -10,12 +13,19 @@ public class RestricaoTempo implements IRestricaoTempo {
     private float limiteBicicleta = Float.NaN;
     private float limiteAPeOnibus = Float.NaN;
 
-    // Construtor sem limite de tempo
+    /**
+     * Cria uma restrição sem limite de tempo (limite infinito).
+     */
     public RestricaoTempo() {
         this.limiteGlobal = Float.POSITIVE_INFINITY;
     }
 
-    // Construtor com limite geral
+    /**
+     * Cria uma restrição com um limite global único para todas as modalidades.
+     *
+     * @param limiteGlobal tempo máximo em minutos (não negativo)
+     * @throws IllegalArgumentException se o limite for negativo
+     */
     public RestricaoTempo(float limiteGlobal) {
         if (limiteGlobal < 0) {
             throw new IllegalArgumentException("Limite de tempo nao pode ser negativo.");
@@ -23,7 +33,13 @@ public class RestricaoTempo implements IRestricaoTempo {
         this.limiteGlobal = limiteGlobal;
     }
 
-    // Define limite especifico para uma modalidade
+    /**
+     * Define um limite específico para uma modalidade, sobrescrevendo o limite global.
+     *
+     * @param modalidade modalidade que receberá o limite específico
+     * @param limite tempo máximo em minutos para essa modalidade
+     * @throws IllegalArgumentException se a modalidade for nula ou o limite for negativo
+     */
     public void definirLimite(Modalidade modalidade, float limite) {
         if (modalidade == null) {
             throw new IllegalArgumentException("Modalidade nao pode ser nula.");
@@ -45,7 +61,12 @@ public class RestricaoTempo implements IRestricaoTempo {
         }
     }
 
-    // Retorna o limite que vale para a modalidade
+    /**
+     * Retorna o limite aplicável à modalidade informada.
+     *
+     * @param modalidade modalidade consultada
+     * @return limite específico da modalidade ou o limite global caso não haja sobrescrita
+     */
     @Override
     public float limitePara(Modalidade modalidade) {
         if (modalidade == null) {
@@ -64,7 +85,9 @@ public class RestricaoTempo implements IRestricaoTempo {
         }
     }
 
-    // Retorna limite geral
+    /**
+     * @return o limite global padrão em minutos
+     */
     public float getLimiteGlobal() {
         return limiteGlobal;
     }
