@@ -8,13 +8,7 @@ import estruturas.ILista;
 import grafo.IGrafo;
 import grafo.Vertice;
 
-/**
- * Serviço responsável por gerenciar e acrescentar novos elementos ao mapa após o carregamento inicial.
- *
- * Permite cadastrar novos locais, trechos de rua e trechos de ônibus,
- * inserindo as arestas diretamente nos grafos em memória e marcando o
- * grafo composto para reconstrução na próxima consulta.
- */
+// Servico para adicionar coisas novas no mapa depois de carregado
 public class ServicoMapa implements IServicoMapa {
 
     private IMapa mapa;
@@ -33,7 +27,7 @@ public class ServicoMapa implements IServicoMapa {
     public ServicoMapa() {
     }
 
-    // Construtor recebendo as referências necessárias
+    // Construtor recebendo as referencias
     public ServicoMapa(
             IMapa mapa,
             IConstrutorGrafos construtorGrafos,
@@ -51,10 +45,6 @@ public class ServicoMapa implements IServicoMapa {
         this.grafoOnibus = grafoOnibus;
         this.grafoComposto = grafoComposto;
     }
-
-    // ==========================================
-    // GETTERS E SETTERS
-    // ==========================================
 
     public IMapa getMapa() {
         return mapa;
@@ -108,14 +98,7 @@ public class ServicoMapa implements IServicoMapa {
         return grafoCompostoDesatualizado;
     }
 
-    // ==========================================
-    // OPERAÇÕES DO SERVIÇO
-    // ==========================================
-
-    /**
-     * Cria e adiciona um novo local ao sistema.
-     * Se ligarAoMaisProximo for verdadeiro, conecta o ponto à interseção mais próxima a pé.
-     */
+    // Cria um local novo e conecta no mais proximo a pe se pedir
     @Override
     public ILocal adicionarLocal(
             String nome,
@@ -125,13 +108,13 @@ public class ServicoMapa implements IServicoMapa {
     ) {
 
         if (nome == null || nome.trim().isEmpty()) {
-            throw new IllegalArgumentException("O nome do local deve ser informado.");
+            throw new IllegalArgumentException("Nome do local nao pode ser vazio.");
         }
 
         String novoId = "L" + (++contadorLocaisNovos);
         ILocal novoLocal = new LocalSimples(novoId, nome, latitude, longitude, TipoLocal.INTERESSE);
 
-        // Adiciona aos grafos básicos
+        // Adiciona aos grafos basicos
         if (grafoPedestre != null) {
             grafoPedestre.adicionarVertice(novoLocal);
         }
@@ -139,7 +122,7 @@ public class ServicoMapa implements IServicoMapa {
             grafoCiclista.adicionarVertice(novoLocal);
         }
 
-        // Se solicitado, localiza o ponto mais próximo e cria o trecho de acesso a pé
+        // Se pediu, acha a esquina mais proxima e liga a pe
         if (ligarAoMaisProximo) {
             ILocal maisProximo = encontrarIntersecaoMaisProxima(novoLocal);
 
@@ -147,25 +130,23 @@ public class ServicoMapa implements IServicoMapa {
                 double distancia = novoLocal.distanciaMetros(maisProximo);
                 float tempoMinutos = modeloCusto.tempoCaminhada(distancia);
 
-                // Em grafo não dirigido de pedestre, cria a ligação de ida e volta
-                grafoPedestre.adicionarAresta(novoLocal, maisProximo, tempoMinutos, "Acesso a pé");
+                // Em grafo nao dirigido, cria ida e volta
+                grafoPedestre.adicionarAresta(novoLocal, maisProximo, tempoMinutos, "Acesso a pe");
             }
         }
 
-        // Adiciona ao mapa se estiver disponível
+        // Adiciona no mapa se tiver
         if (mapa != null) {
             mapa.adicionarLocal(novoLocal);
         }
 
-        // Marca que o grafo composto precisa ser refeito na próxima consulta multimodal
+        // Marca que o composto precisa ser refeito na proxima consulta
         this.grafoCompostoDesatualizado = true;
 
         return novoLocal;
     }
 
-    /**
-     * Acrescenta um trecho viário entre dois locais existentes.
-     */
+    // Adiciona uma nova rua entre dois locais
     @Override
     public void adicionarTrecho(
             String idOrigem,
@@ -178,35 +159,34 @@ public class ServicoMapa implements IServicoMapa {
     ) {
 
         if (idOrigem == null || idDestino == null) {
-            throw new IllegalArgumentException("Os identificadores de origem e destino são obrigatórios.");
+            throw new IllegalArgumentException("Origem e destino sao obrigatorios.");
         }
         if (metros < 0) {
-            throw new IllegalArgumentException("A distância não pode ser negativa.");
+            throw new IllegalArgumentException("Distancia nao pode ser negativa.");
         }
 
         ILocal origem = buscarLocalPorId(idOrigem);
         ILocal destino = buscarLocalPorId(idDestino);
 
         if (origem == null || destino == null) {
-            throw new IllegalArgumentException("Um ou ambos os locais não foram encontrados no mapa.");
+            throw new IllegalArgumentException("Local nao encontrado no mapa.");
         }
 
         String rotulo = (nomeVia != null) ? nomeVia : "";
 
-        // Atualiza grafo de pedestres se for permitido caminhar
+        // Adiciona no grafo de pedestres se for permitido a pe
         if (pedestre && grafoPedestre != null && modeloCusto != null) {
             float tempoPe = modeloCusto.tempoCaminhada(metros);
             grafoPedestre.adicionarAresta(origem, destino, tempoPe, rotulo);
         }
 
-        // Atualiza grafo de ciclistas se for permitido pedalar
+        // Adiciona no grafo de bicicleta se permitido
         if (bici != null && bici != SentidoBicicleta.NENHUM && grafoCiclista != null && modeloCusto != null) {
             float tempoBike = modeloCusto.tempoBicicleta(metros, ciclovia);
 
-            // Aresta no sentido origem -> destino
             grafoCiclista.adicionarAresta(origem, destino, tempoBike, rotulo);
 
-            // Se for mão dupla ou ciclovia, adiciona também no sentido inverso
+            // Se for mao dupla ou ciclovia, adiciona o sentido inverso
             if (bici == SentidoBicicleta.AMBOS || ciclovia) {
                 grafoCiclista.adicionarAresta(destino, origem, tempoBike, rotulo);
             }
@@ -215,9 +195,7 @@ public class ServicoMapa implements IServicoMapa {
         this.grafoCompostoDesatualizado = true;
     }
 
-    /**
-     * Acrescenta um trecho de linha de ônibus entre duas paradas.
-     */
+    // Adiciona trecho de linha de onibus
     @Override
     public void adicionarTrechoOnibus(
             String codigoLinha,
@@ -230,7 +208,7 @@ public class ServicoMapa implements IServicoMapa {
             throw new IllegalArgumentException("Linha e paradas devem ser informadas.");
         }
         if (metros < 0) {
-            throw new IllegalArgumentException("Distância inválida.");
+            throw new IllegalArgumentException("Distancia invalida.");
         }
 
         if (grafoOnibus != null && modeloCusto != null) {
@@ -250,9 +228,7 @@ public class ServicoMapa implements IServicoMapa {
         this.grafoCompostoDesatualizado = true;
     }
 
-    /**
-     * Reconstrói o grafo composto se tiver havido acréscimos recentes.
-     */
+    // Reconstrói o grafo composto se tiver mudanca recente
     public void reconstruirCompostoSeNecessario() {
         if (grafoCompostoDesatualizado && construtorGrafos != null && grafoPedestre != null && grafoOnibus != null) {
             this.grafoComposto = construtorGrafos.construirComposto(grafoPedestre, grafoOnibus);
@@ -260,11 +236,7 @@ public class ServicoMapa implements IServicoMapa {
         }
     }
 
-    // ==========================================
-    // MÉTODOS AUXILIARES
-    // ==========================================
-
-    // Procura o local pelo ID no mapa ou nos vértices do grafo
+    // Procura local pelo id no mapa ou nos grafos
     private ILocal buscarLocalPorId(String id) {
         if (id == null) {
             return null;
@@ -288,7 +260,7 @@ public class ServicoMapa implements IServicoMapa {
         return null;
     }
 
-    // Encontra a interseção mais próxima em distância euclidiana (metros)
+    // Acha a intersecao viaria mais proxima em linha reta
     private ILocal encontrarIntersecaoMaisProxima(ILocal novoLocal) {
         ILocal maisProximo = null;
         double menorDistancia = Double.POSITIVE_INFINITY;
@@ -310,14 +282,7 @@ public class ServicoMapa implements IServicoMapa {
         return maisProximo;
     }
 
-    // ==========================================
-    // CLASSE INTERNA CONCRETA DE LOCAL
-    // ==========================================
-
-    /**
-     * Implementação concreta de ILocal para permitir cadastrar novos locais
-     * criados em tempo de execução via menu ou serviço.
-     */
+    // Classe simples para representar locais criados em tempo de execucao
     private static class LocalSimples implements ILocal {
 
         private final String id;

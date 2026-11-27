@@ -11,24 +11,18 @@ import grafo.IAresta;
 import grafo.ICaminho;
 import grafo.IGrafo;
 
-/**
- * Serviço responsável por calcular e comparar rotas entre locais do bairro.
- *
- * Utiliza os grafos de pedestre, ciclista e o grafo composto (a pé + ônibus),
- * executando busca em largura para verificar viabilidade e Dijkstra para
- * encontrar o caminho de menor tempo.
- */
+// Servico que calcula e compara rotas entre locais do bairro
 public class ServicoRotas implements IServicoRotas {
 
     private IGrafo<ILocal> grafoPedestre;
     private IGrafo<ILocal> grafoCiclista;
     private IGrafo<ILocal> grafoComposto;
 
-    // Construtor padrão
+    // Construtor vazio
     public ServicoRotas() {
     }
 
-    // Construtor recebendo os grafos já montados
+    // Construtor recebendo os grafos
     public ServicoRotas(
             IGrafo<ILocal> grafoPedestre,
             IGrafo<ILocal> grafoCiclista,
@@ -39,24 +33,22 @@ public class ServicoRotas implements IServicoRotas {
         this.grafoComposto = grafoComposto;
     }
 
-    // Atualiza o grafo de pedestres
+    // Atualiza grafo pedestre
     public void setGrafoPedestre(IGrafo<ILocal> grafoPedestre) {
         this.grafoPedestre = grafoPedestre;
     }
 
-    // Atualiza o grafo de ciclistas
+    // Atualiza grafo ciclista
     public void setGrafoCiclista(IGrafo<ILocal> grafoCiclista) {
         this.grafoCiclista = grafoCiclista;
     }
 
-    // Atualiza o grafo composto (ônibus + caminhada)
+    // Atualiza grafo composto
     public void setGrafoComposto(IGrafo<ILocal> grafoComposto) {
         this.grafoComposto = grafoComposto;
     }
 
-    /**
-     * Calcula o trajeto mínimo para uma modalidade específica.
-     */
+    // Calcula rota para uma modalidade especifica
     @Override
     public IResultadoRota calcular(
             Modalidade modalidade,
@@ -66,59 +58,57 @@ public class ServicoRotas implements IServicoRotas {
     ) {
 
         if (modalidade == null) {
-            throw new IllegalArgumentException("A modalidade não pode ser nula.");
+            throw new IllegalArgumentException("Modalidade nao pode ser nula.");
         }
         if (p == null || q == null) {
-            throw new IllegalArgumentException("Os locais de origem e destino devem ser informados.");
+            throw new IllegalArgumentException("Origem e destino devem ser informados.");
         }
 
-        // Aplica o limite definido na restrição (ou infinito se não houver)
+        // Pega limite de tempo ou infinito se nao tiver
         float limite = (restricao != null) ? restricao.limitePara(modalidade) : Float.POSITIVE_INFINITY;
 
-        // Seleciona o grafo adequado para a modalidade escolhida
+        // Pega o grafo certo da modalidade
         IGrafo<ILocal> grafo = escolherGrafo(modalidade);
 
         if (grafo == null) {
             return ResultadoRota.semRota(modalidade, limite);
         }
 
-        // Verifica se os locais existem no grafo
+        // Checa se os dois locais existem no grafo
         if (grafo.obterVertice(p) == null || grafo.obterVertice(q) == null) {
             return ResultadoRota.semRota(modalidade, limite);
         }
 
-        // Caso especial: origem e destino são o mesmo ponto
+        // Se origem e destino sao iguais, ja chegou
         if (p.equals(q)) {
             ILista<IPassoGuia> guiaMesmoPonto = new ListaEncadeada<>();
             guiaMesmoPonto.adicionar(new PassoGuia(
                     MeioTransporte.CAMINHADA,
-                    "Você já está no destino (" + p.getNome() + ").",
+                    "Voce ja esta no local (" + p.getNome() + ").",
                     0.0f
             ));
             return new ResultadoRota(modalidade, true, limite, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, guiaMesmoPonto);
         }
 
-        // Passo 1: Busca em largura para checar se o destino é alcançável
+        // Checa primeiro por busca em largura se da pra alcancar o destino
         boolean alcancavel = grafo.existeCaminho(p, q);
 
         if (!alcancavel) {
             return ResultadoRota.semRota(modalidade, limite);
         }
 
-        // Passo 2: Dijkstra para obter o caminho com menor tempo total
+        // Roda o dijkstra para pegar o caminho de menor tempo
         ICaminho<ILocal> caminho = grafo.menorCaminho(p, q);
 
         if (caminho == null || !caminho.existe()) {
             return ResultadoRota.semRota(modalidade, limite);
         }
 
-        // Passo 3: Percorre as arestas calculando tempos e montando o guia textual
+        // Monta os passos e soma os tempos
         return processarCaminho(modalidade, caminho, limite);
     }
 
-    /**
-     * Executa as 3 modalidades e devolve apenas as viáveis, ordenadas pelo menor tempo total.
-     */
+    // Executa as tres modalidades e devolve as viaveis ordenadas
     @Override
     public ILista<IResultadoRota> compararModalidades(
             ILocal p,
@@ -127,15 +117,15 @@ public class ServicoRotas implements IServicoRotas {
     ) {
 
         if (p == null || q == null) {
-            throw new IllegalArgumentException("Origem e destino não podem ser nulos.");
+            throw new IllegalArgumentException("Origem e destino nao podem ser nulos.");
         }
 
-        // Calcula cada uma das três opções
+        // Calcula cada uma das tres
         IResultadoRota rPedestre = calcular(Modalidade.A_PE, p, q, restricao);
         IResultadoRota rComposto = calcular(Modalidade.A_PE_ONIBUS, p, q, restricao);
         IResultadoRota rCiclista = calcular(Modalidade.BICICLETA, p, q, restricao);
 
-        // Lista encadeada própria para guardar apenas as viáveis ordenadas
+        // Guarda as viaveis ordenadas do menor para o maior tempo
         ILista<IResultadoRota> viaveisOrdenadas = new ListaEncadeada<>();
 
         inserirOrdenado(viaveisOrdenadas, rPedestre);
@@ -145,11 +135,7 @@ public class ServicoRotas implements IServicoRotas {
         return viaveisOrdenadas;
     }
 
-    // ==========================================
-    // MÉTODOS AUXILIARES
-    // ==========================================
-
-    // Escolhe o grafo de acordo com a modalidade solicitada
+    // Escolhe o grafo de acordo com a modalidade
     private IGrafo<ILocal> escolherGrafo(Modalidade modalidade) {
         switch (modalidade) {
             case A_PE:
@@ -163,7 +149,7 @@ public class ServicoRotas implements IServicoRotas {
         }
     }
 
-    // Processa as arestas do caminho, soma os tempos parciais e agrupa passos consecutivos
+    // Processa arestas, soma tempos parciais e junta passos da mesma rua
     private IResultadoRota processarCaminho(
             Modalidade modalidade,
             ICaminho<ILocal> caminho,
@@ -178,7 +164,7 @@ public class ServicoRotas implements IServicoRotas {
         ILista<IAresta<ILocal>> arestas = caminho.getArestas();
         ILista<IPassoGuia> guia = new ListaEncadeada<>();
 
-        // Variáveis para acumular passos consecutivos na mesma via
+        // Variaveis para acumular passos seguidos na mesma rua
         MeioTransporte meioAtual = null;
         String rotuloAtual = null;
         float minutosAcumulados = 0.0f;
@@ -191,7 +177,7 @@ public class ServicoRotas implements IServicoRotas {
             String rotulo = aresta.getRotulo();
             String nomeDestino = aresta.getDestino().getValor().getNome();
 
-            // Soma nos acumuladores de tempo por categoria
+            // Soma no tempo do transporte correspondente
             switch (meioAresta) {
                 case CAMINHADA:
                     tempoCaminhada += peso;
@@ -207,17 +193,17 @@ public class ServicoRotas implements IServicoRotas {
                     break;
             }
 
-            // Regra de fusão de passos: se for o mesmo meio e mesmo rótulo, agrupa
+            // Se for o mesmo transporte e mesma rua, acumula o tempo
             if (meioAtual != null && meioAtual == meioAresta && rotulo != null && rotulo.equalsIgnoreCase(rotuloAtual)) {
                 minutosAcumulados += peso;
                 ultimoDestinoNome = nomeDestino;
             } else {
-                // Descarrega o passo anterior agrupado, se houver
+                // Mudou de rua ou de transporte, descarrega o passo anterior
                 if (meioAtual != null) {
                     guia.adicionar(criarPasso(meioAtual, rotuloAtual, minutosAcumulados, ultimoDestinoNome));
                 }
 
-                // Inicia novo grupo de passos
+                // Inicia novo passo
                 meioAtual = meioAresta;
                 rotuloAtual = rotulo;
                 minutosAcumulados = peso;
@@ -225,7 +211,7 @@ public class ServicoRotas implements IServicoRotas {
             }
         }
 
-        // Descarrega o último passo restante após o fim do laço
+        // Descarrega o ultimo passo
         if (meioAtual != null) {
             guia.adicionar(criarPasso(meioAtual, rotuloAtual, minutosAcumulados, ultimoDestinoNome));
         }
@@ -245,7 +231,7 @@ public class ServicoRotas implements IServicoRotas {
         );
     }
 
-    // Identifica o meio de transporte de uma aresta
+    // Descobre o meio de transporte de cada aresta
     private MeioTransporte identificarMeio(Modalidade modalidade, IAresta<ILocal> aresta) {
         if (modalidade == Modalidade.A_PE) {
             return MeioTransporte.CAMINHADA;
@@ -255,9 +241,8 @@ public class ServicoRotas implements IServicoRotas {
             return MeioTransporte.BICICLETA;
         }
 
-        // No grafo composto (modalidade A_PE_ONIBUS), deduzimos pelas camadas dos vértices:
-        // Se o id tem '@', pertence à camada B (ônibus por linha).
-        // Se não tem '@', pertence à camada A (física / pedestre).
+        // No grafo composto, checa pelos ids dos vertices:
+        // id com '@' e parada de linha (camada B - onibus). Sem '@' e ponto fisico (camada A).
         String idOrigem = aresta.getOrigem().getValor().getId();
         String idDestino = aresta.getDestino().getValor().getId();
 
@@ -267,19 +252,19 @@ public class ServicoRotas implements IServicoRotas {
         if (!origemOnibus && !destinoOnibus) {
             return MeioTransporte.CAMINHADA;
         } else if (!origemOnibus && destinoOnibus) {
-            return MeioTransporte.ESPERA; // Transição A -> B (embarque)
+            return MeioTransporte.ESPERA; // Transicao A -> B (embarque)
         } else if (origemOnibus && destinoOnibus) {
-            return MeioTransporte.ONIBUS; // Viagem na linha B -> B
+            return MeioTransporte.ONIBUS; // Trecho na linha B -> B
         } else {
-            return MeioTransporte.CAMINHADA; // Transição B -> A (desembarque: custo zero)
+            return MeioTransporte.CAMINHADA; // Transicao B -> A (desembarque, custo 0)
         }
     }
 
-    // Gera a descrição amigável de cada passo
+    // Monta o texto de cada passo
     private IPassoGuia criarPasso(MeioTransporte meio, String rotulo, float minutos, String destinoNome) {
         String descricao;
 
-        // Se o tempo for zero e tiver nome de destino, trata como desembarque
+        // Se o tempo for zero e tiver destino, trata como desembarque
         if (minutos <= 0.0001f && meio == MeioTransporte.CAMINHADA && destinoNome != null) {
             descricao = String.format("Desembarque no ponto %s", destinoNome);
             return new PassoGuia(meio, descricao, 0.0f);
@@ -288,9 +273,9 @@ public class ServicoRotas implements IServicoRotas {
         switch (meio) {
             case CAMINHADA:
                 if (rotulo != null && !rotulo.trim().isEmpty()) {
-                    descricao = String.format("Caminhe por %.1f min pela %s até %s", minutos, rotulo, destinoNome);
+                    descricao = String.format("Caminhe por %.1f min pela %s ate %s", minutos, rotulo, destinoNome);
                 } else {
-                    descricao = String.format("Caminhe por %.1f min até %s", minutos, destinoNome);
+                    descricao = String.format("Caminhe por %.1f min ate %s", minutos, destinoNome);
                 }
                 break;
 
@@ -298,46 +283,46 @@ public class ServicoRotas implements IServicoRotas {
                 if (rotulo != null && !rotulo.trim().isEmpty()) {
                     descricao = String.format("Aguarde no ponto e embarque na linha %s (espera de %.1f min)", rotulo, minutos);
                 } else {
-                    descricao = String.format("Aguarde no ponto e embarque no ônibus (espera de %.1f min)", minutos);
+                    descricao = String.format("Aguarde no ponto e embarque no onibus (espera de %.1f min)", minutos);
                 }
                 break;
 
             case ONIBUS:
                 if (rotulo != null && !rotulo.trim().isEmpty()) {
-                    descricao = String.format("Siga no ônibus (linha %s) por %.1f min até %s", rotulo, minutos, destinoNome);
+                    descricao = String.format("Siga no onibus (linha %s) por %.1f min ate %s", rotulo, minutos, destinoNome);
                 } else {
-                    descricao = String.format("Siga no ônibus por %.1f min até %s", minutos, destinoNome);
+                    descricao = String.format("Siga no onibus por %.1f min ate %s", minutos, destinoNome);
                 }
                 break;
 
             case BICICLETA:
                 if (rotulo != null && !rotulo.trim().isEmpty()) {
-                    descricao = String.format("Pedale por %.1f min pela via %s até %s", minutos, rotulo, destinoNome);
+                    descricao = String.format("Pedale por %.1f min pela via %s ate %s", minutos, rotulo, destinoNome);
                 } else {
-                    descricao = String.format("Pedale por %.1f min até %s", minutos, destinoNome);
+                    descricao = String.format("Pedale por %.1f min ate %s", minutos, destinoNome);
                 }
                 break;
 
             default:
-                descricao = String.format("Siga por %.1f min até %s", minutos, destinoNome);
+                descricao = String.format("Siga por %.1f min ate %s", minutos, destinoNome);
         }
 
         return new PassoGuia(meio, descricao, minutos);
     }
 
-    // Insere ordenado pelo tempo total, mantendo apenas rotas viáveis
+    // Insere ordenado pelo menor tempo total
     private void inserirOrdenado(ILista<IResultadoRota> lista, IResultadoRota rota) {
         if (rota == null || !rota.isViavel()) {
             return;
         }
 
-        // Se a lista estiver vazia, apenas adiciona
+        // Se a lista estiver vazia, adiciona direto
         if (lista.estaVazia()) {
             lista.adicionar(rota);
             return;
         }
 
-        // Cria uma nova lista auxiliar para reconstruir na ordem correta
+        // Lista auxiliar para reconstruir na ordem
         ILista<IResultadoRota> ordenada = new ListaEncadeada<>();
         boolean inserido = false;
 
@@ -353,7 +338,7 @@ public class ServicoRotas implements IServicoRotas {
             ordenada.adicionar(rota);
         }
 
-        // Limpa e repassa os elementos para a lista original
+        // Devolve os itens ordenados para a lista original
         while (!lista.estaVazia()) {
             lista.removerPrimeiro();
         }

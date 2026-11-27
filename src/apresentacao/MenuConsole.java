@@ -16,12 +16,7 @@ import servico.ServicoRotas;
 
 import java.util.Scanner;
 
-/**
- * Interface de interação com o usuário através do console.
- *
- * Responsável por apresentar o menu e coordenar
- * as operações disponíveis no aplicativo.
- */
+// Menu interativo no console para o usuario
 public class MenuConsole {
 
     private final String caminhoArquivo;
@@ -36,11 +31,7 @@ public class MenuConsole {
     private IServicoRotas servicoRotas;
     private IServicoMapa servicoMapa;
 
-    /**
-     * Construtor do menu.
-     *
-     * @param caminhoArquivo caminho do arquivo de dados
-     */
+    // Construtor
     public MenuConsole(String caminhoArquivo) {
         this.caminhoArquivo = caminhoArquivo;
         this.entrada = new Scanner(System.in);
@@ -48,9 +39,7 @@ public class MenuConsole {
         this.servicoMapa = new ServicoMapa();
     }
 
-    /**
-     * Inicia o aplicativo.
-     */
+    // Inicia o sistema
     public void iniciar() {
         System.out.println("========================================");
         System.out.println("       SISTEMA DE ROTAS - JARDIM CAMBURI");
@@ -61,30 +50,20 @@ public class MenuConsole {
         executarMenu();
     }
 
-    // ==========================================
-    // CARREGAMENTO DO MAPA
-    // ==========================================
-
-    /**
-     * Carrega o mapa a partir do arquivo TXT
-     * e constrói os grafos utilizados pelo sistema.
-     */
+    // Le o arquivo de dados do mapa
     private void carregarMapa() {
         System.out.println("\nCarregando dados do mapa...");
         System.out.println("Arquivo de entrada: " + caminhoArquivo);
 
-        /*
-         * Integração com as camadas de persistência e serviço:
-         * Quando o Membro 2 finalizar o RepositorioMapaArquivo e ConstrutorGrafos,
-         * o carregamento real do arquivo bairro.txt alimentará este ponto.
-         */
-        if (mapa == null) {
-            System.out.println("Aviso: Leitor de arquivo (Membro 2) em desenvolvimento.");
-            System.out.println("A estrutura de serviços e rotas está pronta para receber os grafos.");
+        try {
+            this.mapa = new persistencia.RepositorioMapaArquivo().carregar(caminhoArquivo);
+            System.out.println("Mapa lido com sucesso: " + mapa.getLocais().tamanho() + " locais.");
+        } catch (Exception e) {
+            System.out.println("Aviso: " + e.getMessage());
         }
     }
 
-    // Configura os grafos no menu para uso imediato (inclusive em testes)
+    // Permite configurar os grafos de fora
     public void configurarServicos(
             IMapa mapa,
             IGrafo<ILocal> pedestre,
@@ -98,20 +77,11 @@ public class MenuConsole {
         this.grafoOnibus = onibus;
         this.grafoComposto = composto;
 
-        ServicoRotas rotas = new ServicoRotas(pedestre, ciclista, composto);
-        this.servicoRotas = rotas;
-
-        ServicoMapa servMapa = new ServicoMapa(mapa, null, null, pedestre, ciclista, onibus, composto);
-        this.servicoMapa = servMapa;
+        this.servicoRotas = new ServicoRotas(pedestre, ciclista, composto);
+        this.servicoMapa = new ServicoMapa(mapa, null, null, pedestre, ciclista, onibus, composto);
     }
 
-    // ==========================================
-    // MENU PRINCIPAL
-    // ==========================================
-
-    /**
-     * Apresenta o menu e recebe as opções do usuário.
-     */
+    // Laco principal que le as escolhas
     private void executarMenu() {
         int opcao;
 
@@ -130,9 +100,7 @@ public class MenuConsole {
         } while (opcao != 0);
     }
 
-    /**
-     * Exibe as opções disponíveis.
-     */
+    // Mostra as opcoes disponiveis
     private void mostrarMenu() {
         System.out.println("\n========================================");
         System.out.println("              MENU PRINCIPAL");
@@ -149,9 +117,7 @@ public class MenuConsole {
         System.out.println("0. Sair");
     }
 
-    /**
-     * Direciona a opção selecionada para sua funcionalidade.
-     */
+    // Trata cada opcao escolhida
     private void processarOpcao(int opcao) {
         switch (opcao) {
             case 1:
@@ -183,10 +149,7 @@ public class MenuConsole {
         }
     }
 
-    // ==========================================
-    // FUNCIONALIDADES DO APLICATIVO
-    // ==========================================
-
+    // Opcao 1: mostra quantidade de vertices e arestas
     private void exibirInformacoesMapa() {
         System.out.println("\n--- Informações do Mapa ---");
         if (grafoPedestre == null && grafoCiclista == null && grafoComposto == null) {
@@ -212,6 +175,7 @@ public class MenuConsole {
         }
     }
 
+    // Opcao 2: roda busca em largura a partir de um ponto
     private void executarBuscaLargura() {
         System.out.println("\n--- Busca em Largura (BFS) ---");
         IGrafo<ILocal> grafoEscolhido = selecionarGrafo();
@@ -232,6 +196,7 @@ public class MenuConsole {
         System.out.println(resultado);
     }
 
+    // Opcao 3: calcula trajeto de uma modalidade especifica
     private void calcularRota() {
         System.out.println("\n--- Calcular Rota ---");
 
@@ -279,6 +244,7 @@ public class MenuConsole {
         System.out.println(resultado.toString());
     }
 
+    // Opcao 4: compara a pe, bike e onibus e ordena
     private void compararModalidades() {
         System.out.println("\n--- Comparação de Modalidades ---");
 
@@ -315,6 +281,7 @@ public class MenuConsole {
         }
     }
 
+    // Opcao 5: cadastra um local novo
     private void adicionarLocal() {
         System.out.println("\n--- Adicionar Novo Local ---");
         System.out.print("Nome do local: ");
@@ -334,6 +301,7 @@ public class MenuConsole {
         System.out.printf("\nLocal cadastrado com sucesso! ID gerado: %s (%s)\n", novo.getId(), novo.getNome());
     }
 
+    // Opcao 6: cadastra um trecho de rua
     private void adicionarTrecho() {
         System.out.println("\n--- Adicionar Trecho Viário ---");
         System.out.print("ID do local de origem: ");
@@ -373,6 +341,7 @@ public class MenuConsole {
         }
     }
 
+    // Opcao 7: cadastra trecho de linha de onibus
     private void adicionarTrechoOnibus() {
         System.out.println("\n--- Adicionar Trecho de Ônibus ---");
         System.out.print("Código da linha (ex: 0160-1): ");
@@ -395,10 +364,7 @@ public class MenuConsole {
         }
     }
 
-    // ==========================================
-    // MÉTODOS DE APOIO / ENTRADA DE DADOS
-    // ==========================================
-
+    // Seleciona um dos quatro grafos
     private IGrafo<ILocal> selecionarGrafo() {
         System.out.println("Selecione o grafo desejado:");
         System.out.println("1 - Grafo Pedestre");
@@ -419,6 +385,7 @@ public class MenuConsole {
         }
     }
 
+    // Pega o grafo correspondente a modalidade
     private IGrafo<ILocal> selecionarGrafoPorModalidade(Modalidade modalidade) {
         switch (modalidade) {
             case A_PE: return grafoPedestre;
@@ -428,6 +395,7 @@ public class MenuConsole {
         }
     }
 
+    // Pega o local digitado pelo usuario (busca por id ou por nome)
     private ILocal obterLocalPorEntrada(String prompt, IGrafo<ILocal> grafo) {
         System.out.print(prompt);
         String texto = entrada.nextLine().trim();
@@ -437,7 +405,7 @@ public class MenuConsole {
             return null;
         }
 
-        // Tenta buscar no mapa se disponível
+        // Tenta buscar no mapa
         if (mapa != null) {
             ILocal porId = mapa.buscarPorId(texto);
             if (porId != null) return porId;
@@ -448,7 +416,7 @@ public class MenuConsole {
             }
         }
 
-        // Busca nos vértices do grafo
+        // Tenta achar nos vertices do grafo
         if (grafo != null) {
             for (Vertice<ILocal> v : grafo.getVertices()) {
                 ILocal loc = v.getValor();
@@ -462,6 +430,7 @@ public class MenuConsole {
         return null;
     }
 
+    // Le o limite de tempo digitado
     private float obterLimiteTempo() {
         System.out.print("Informe o limite de tempo em minutos (ou Enter para sem limite): ");
         String texto = entrada.nextLine().trim();
@@ -479,6 +448,7 @@ public class MenuConsole {
         }
     }
 
+    // Le numero decimal
     private double lerDouble() {
         try {
             return Double.parseDouble(entrada.nextLine().trim());

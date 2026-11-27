@@ -3,23 +3,20 @@ package servico;
 import dominio.IPassoGuia;
 import dominio.MeioTransporte;
 
-/**
- * Representa uma instrução do trajeto para o usuário.
- * Exemplo: "Caminhe 5 min pela Rua Carlos Martins".
- */
+// Guarda uma instrucao do caminho (ex: caminhe 5 min na rua tal)
 public class PassoGuia implements IPassoGuia {
 
     private final MeioTransporte meio;
     private final String descricao;
     private final float minutos;
 
-    // Construtor do passo
+    // Construtor
     public PassoGuia(MeioTransporte meio, String descricao, float minutos) {
         if (meio == null) {
-            throw new IllegalArgumentException("O meio de transporte não pode ser nulo.");
+            throw new IllegalArgumentException("Meio de transporte nao pode ser nulo.");
         }
         if (minutos < 0) {
-            throw new IllegalArgumentException("O tempo em minutos não pode ser negativo.");
+            throw new IllegalArgumentException("Tempo nao pode ser negativo.");
         }
 
         this.meio = meio;
@@ -27,25 +24,25 @@ public class PassoGuia implements IPassoGuia {
         this.minutos = minutos;
     }
 
-    // Retorna o meio utilizado (a pé, ônibus, bike, espera)
+    // Retorna o meio de transporte
     @Override
     public MeioTransporte getMeio() {
         return meio;
     }
 
-    // Retorna a instrução em texto
+    // Retorna o texto da instrucao
     @Override
     public String getDescricao() {
         return descricao;
     }
 
-    // Retorna o tempo estimado em minutos
+    // Retorna o tempo em minutos
     @Override
     public float getMinutos() {
         return minutos;
     }
 
-    // Exibe o passo formatado
+    // Formata para exibicao
     @Override
     public String toString() {
         return String.format("- %s (%.1f min)", descricao, minutos);

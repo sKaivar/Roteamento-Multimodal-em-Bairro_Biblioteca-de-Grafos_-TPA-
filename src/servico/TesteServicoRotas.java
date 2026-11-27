@@ -9,9 +9,7 @@ import estruturas.ILista;
 import grafo.Grafo;
 import grafo.IGrafo;
 
-/**
- * Teste de validação das rotas multimodais, fusão de passos e ordenação.
- */
+// Teste simples para validar as rotas
 public class TesteServicoRotas {
 
     public static void main(String[] args) {
