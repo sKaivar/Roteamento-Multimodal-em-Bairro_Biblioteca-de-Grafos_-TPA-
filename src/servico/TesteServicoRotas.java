@@ -2,16 +2,23 @@ package servico;
 
 import dominio.ILocal;
 import dominio.IResultadoRota;
-import dominio.MeioTransporte;
 import dominio.Modalidade;
 import dominio.TipoLocal;
 import estruturas.ILista;
 import grafo.Grafo;
 import grafo.IGrafo;
 
-// Teste simples para validar as rotas
+/**
+ * Classe de testes de unidade para validar o cálculo de rotas, a fusão de passos
+ * na mesma via, o modelo multimodal com espera de embarque e a ordenação por tempo.
+ */
 public class TesteServicoRotas {
 
+    /**
+     * Executa os cenários de teste do serviço de rotas em um grafo reduzido de exemplo.
+     *
+     * @param args argumentos de linha de comando (não utilizados)
+     */
     public static void main(String[] args) {
         System.out.println("=== INICIANDO TESTES DO SERVIÇO DE ROTAS ===");
 

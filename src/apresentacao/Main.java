@@ -1,10 +1,16 @@
 package apresentacao;
 
 /**
- * Ponto de entrada da aplicação.
+ * Ponto de entrada da aplicação de roteamento multimodal intrabairro.
  */
 public class Main {
 
+    /**
+     * Inicia o sistema carregando o arquivo de dados padrão (ou o caminho
+     * passado por argumento) e abrindo o menu interativo no console.
+     *
+     * @param args argumentos de linha de comando; {@code args[0]} opcionalmente define o arquivo de entrada
+     */
     public static void main(String[] args) {
 
         // Caminho padrão do arquivo de dados
