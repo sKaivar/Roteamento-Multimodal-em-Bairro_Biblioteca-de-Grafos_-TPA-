@@ -1,6 +1,6 @@
 package dominio;
 
-public abstract class Local implements ILocal {
+public class Local implements ILocal {
     private final String id;
     private final String nome;
     private double latitude;
@@ -9,9 +9,12 @@ public abstract class Local implements ILocal {
     private static final double METROS_POR_GRAU_LAT = 111_320.0;
     private static final double METROS_POR_GRAU_LON = 104_430.0; // 111 320 × cos(20,26°)
 
-    public Local(String id, String nome) {
+    public Local(String id, String nome, double latitude, double longitude, TipoLocal tipo) {
         this.id = id;
         this.nome = nome;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.tipo = tipo;
     }
 
     @Override

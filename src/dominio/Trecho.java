@@ -1,6 +1,6 @@
 package dominio;
 
-public abstract class Trecho implements ITrecho {
+public class Trecho implements ITrecho {
     private final ILocal origem;
     private final ILocal destino;
     private final double distanciaMetros;
